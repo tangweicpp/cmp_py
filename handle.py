@@ -11,6 +11,7 @@ import connect_db as conn
 import time
 import os
 import logging
+import send_email as se
 import pandas as pd
 import numpy as np
 import json
@@ -18,8 +19,15 @@ import re
 from openpyxl.utils import get_column_letter, column_index_from_string
 
 
-progress = 0
 user_progress = {}
+# 解决oracle中文乱码问题
+os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
+# None转空字符串
+
+
+def xstr(s):
+    # return '' if s is None else  str(s).strip().replace('\\','')
+    return '' if s is None else str(s).strip()
 
 
 logging.basicConfig(level=logging.INFO, filename='erp.txt',
@@ -28,9 +36,7 @@ logging.basicConfig(level=logging.INFO, filename='erp.txt',
 
 # Upload progress
 def get_progress(user_key):
-    global progress
     global user_progress
-    # return progress
     return user_progress[f'{user_key}']
 
 
@@ -119,25 +125,68 @@ def upload_po_file(f, po_header):
     ret = get_upload_data(po_header['upload_id'])
 
     # Send mail
-    send_mail(ret, po_header)
+    send_mail(ret, po_header, file_path)
 
     return ret
 
 
 # Sent mail
-def send_mail(ret_data, po_header):
-    mail_body = po_header['mail_content']
+def send_mail(ret_data, po_header, mail_attachment):
     mail_keyid = po_header['upload_id']
+
+    mail_body = get_mail_body(
+        '07885', mail_keyid, po_header['mail_content'], ret_data)
     sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
-    mail_recv = conn.OracleConn.query(sql)[0][0]
+    mail_recv = conn.OracleConn.query(sql)[0][0].split(',')
     sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
-    mail_recv_cc = conn.OracleConn.query(sql)[0][0]
+    mail_recv_cc = conn.OracleConn.query(sql)[0][0].split(',')
     mail_title = '测试新版WO上传'
 
-    sql = f''' insert into tbl_sent_mail(MAIL_ID,SENT_FROM,SENT_TIME,SENT_TO,SENT_TO_CC,MAIL_BODY,MAIL_ATTACHMENT,FLAG,MAIL_KEY) 
-    values(MAILID_SEQ.Nextval,'07885',sysdate,'{mail_recv}','{mail_recv_cc}','{mail_title}','{mail_body}','','0','{mail_keyid}')
+    se.send_email(mail_title, mail_body, mail_attachment,
+                  mail_recv, mail_recv_cc)
+
+
+
+# Get mail body
+def get_mail_body(createBy, uploadid, addContent, json_data):
+    # Get total data
+    content = f'''
+          内勤人员：{createBy} 上传WO
+          <div style="color:red">{addContent}</div>
+          <h2>以下为上传WO的汇总信息</h2>
+          <table border="1" cellspacing="0" cellpadding="5" style="border:rgb(175, 175, 175) solid thin">
+              <tr style="background-color: rgb(175, 175, 175);">
+                  <th>序号</th><th>保税</th><th>客户代码</th><th>客户PO</th><th>客户机种</th><th>客户Fab机种</th><th>厂内机种</th><th>晶圆料号</th>
+                  <th>客户LOTID</th><th>片数</th><th>DIES</th><th>上传人员工号</th><th>上传时间</th>
+              </tr>
+          '''
+
+    for row in json_data['total_data']:
+        content = content + f'''<tr><td>{row['id']}</td><td>{row['banded']}</td><td>{row['cust_code']}</td><td>{row['po_id']}</td>
+        <td>{row['cust_device']}</td><td>{row['fab_device']}</td><td>{row['ht_pn']}</td><td>{row['wafer_pn']}</td>
+        <td>{row['lot_id']}</td><td>{row['wafer_qty']}</td><td>{row['die_qty']}</td><td>{row['upload_by']}</td><td>{row['upload_date']}</td></tr>
+        '''
+
+    content = content + '</table>'
+
+    # Get detail data
+    content = content + f'''<h2>以下为明细数据</h2>
+    <table border="1" cellspacing="0" cellpadding="5" style="border:rgb(175, 175, 175) solid thin">
+              <tr style="background-color: rgb(175, 175, 175);">
+                  <th>序号</th><th>客户PO</th><th>客户机种</th><th>客户Fab机种</th><th>厂内机种</th>
+                  <th>客户LOTID</th><th>waferID</th><th>grossdies</th><th>打标码</th>
+              </tr>
     '''
-    conn.OracleConn.exec(sql)
+
+    for row in json_data['detail_data']:
+        content = content + f'''<tr><td>{row['id']}</td><td>{row['po_id']}</td>
+        <td>{row['cust_device']}</td><td>{row['fab_device']}</td><td>{row['ht_pn']}</td>
+        <td>{row['lot_id']}</td><td>{row['wafer_id']}</td><td>{row['gross_dies']}</td><td>{row['mark_code']}</td></tr>
+        '''
+
+    content = content + '</table>'
+
+    return content
 
 
 # Get upload data
@@ -322,9 +371,7 @@ def check_po_data(po_header, po_dic, po_data):
 
 # Save po data
 def save_po_data(po_header, po_dic, po_data):
-    global progress
     global user_progress
-    progress = 0
     user_progress[po_header['user_upload_progress']] = 0
     num = 0
     for item in po_data:
@@ -344,7 +391,6 @@ def save_po_data(po_header, po_dic, po_data):
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
-            progress = progress + 100 / float(num)
             user_progress[po_header['user_upload_progress']
                           ] = user_progress[po_header['user_upload_progress']] + 100 / float(num)
 
