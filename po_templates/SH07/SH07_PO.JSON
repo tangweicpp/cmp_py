@@ -1,0 +1,107 @@
+{
+    "customer_code": "SH07",
+    "file_name": "SH07工单模板.xlsx",
+    "file_type": "xlsx",
+    "file_max_cols": 18,
+    "file_max_rows": 100,
+    "file_keys": {
+        "po_id": {
+            "position": {
+                "col_num": 2,
+                "col_char": "B",
+                "col_name": "PO"
+            },
+            "fix_len": null,
+            "max_len": 40,
+            "min_len": 8,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "P20017E20075506020002",
+            "desc": "客户订单号"
+        },
+        "customer_device": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": "Bump Code"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": "_",
+            "complexed": false,
+            "remark": false,
+            "example": "191202BB_U01",
+            "desc": "客户机种名"
+        },
+        "fab_device": {
+            "position": {
+                "col_num": 7,
+                "col_char": "G",
+                "col_name": "Wafer Code"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "191202BB",
+            "desc": "FAB机种名"
+        },
+        "lot_id": {
+            "position": {
+                "col_num": 10,
+                "col_char": "J",
+                "col_name": "Lot ID"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 7,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "BS1711601A",
+            "desc": "lot号"
+        },
+        "wafer_id": {
+            "position": {
+                "col_num": 11,
+                "col_char": "K",
+                "col_name": "Wafer ID"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "string",
+            "in_char": "#",
+            "complexed": true,
+            "remark": false,
+            "example": "#1~25",
+            "desc": "WAFER ID"
+        },
+        "wafer_qty": {
+            "position": {
+                "col_num": 12,
+                "col_char": "L",
+                "col_name": "Qty(pcs)"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "1",
+            "desc": "WAFER片数"
+        },
+        "gross_dies": null,
+        "good_dies": null
+    }
+}

@@ -64,13 +64,12 @@ def upload_po_file():
         po_header['delay_days'] = request.values.get('delayDays')
         po_header['template_id'] = request.values.get('templateId')
         po_header['is_bonded'] = request.values.get('isBonded')
+        po_header['mail_content'] = request.values.get('mailContent')
         po_header['user_upload_progress'] = request.values.get(
             'userUploadRandom')
+        json_data = h.upload_po_file(f, po_header)
 
-        if h.upload_po_file(f, po_header):
-            return make_response('success', 200)
-        else:
-            return make_response('订单文件上传失败', 501)
+        return make_response(jsonify(json_data), 200)
 
 
 # Update progress

@@ -8,5 +8,8 @@ from handle import delete_po_data
 # 13109
 # ```
 
-delete_po_data('2', '13109')
-print('删除成功')
+del_list = ['13276']
+
+for del_id in del_list:
+    delete_po_data('2', del_id)
+    print(f'{del_id}删除成功')

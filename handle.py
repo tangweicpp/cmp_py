@@ -31,7 +31,7 @@ def get_progress(user_key):
     global progress
     global user_progress
     # return progress
-    return user_progress[user_key]
+    return user_progress[f'{user_key}']
 
 
 # Check username and password
@@ -105,11 +105,129 @@ def upload_po_file(f, po_header):
 
     file_path = os.path.join(file_dir, f.filename)
     f.save(file_path)
+
+    # Set upload id
+    sql = "select PO_ITEM_SEQ.nextval from dual"
+    po_header['upload_id'] = conn.OracleConn.query(sql)[0][0]
+
+    # Parse
     parse_po_file(file_path, po_header)
+
     # Del user key
     # del user_progress[po_header['user_upload_progress']]
 
-    return True
+    ret = get_upload_data(po_header['upload_id'])
+
+    # Send mail
+    send_mail(ret, po_header)
+
+    return ret
+
+
+# Sent mail
+def send_mail(ret_data, po_header):
+    mail_body = po_header['mail_content']
+    mail_keyid = po_header['upload_id']
+    sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    mail_recv = conn.OracleConn.query(sql)[0][0]
+    sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    mail_recv_cc = conn.OracleConn.query(sql)[0][0]
+    mail_title = '测试新版WO上传'
+
+    sql = f''' insert into tbl_sent_mail(MAIL_ID,SENT_FROM,SENT_TIME,SENT_TO,SENT_TO_CC,MAIL_BODY,MAIL_ATTACHMENT,FLAG,MAIL_KEY) 
+    values(MAILID_SEQ.Nextval,'07885',sysdate,'{mail_recv}','{mail_recv_cc}','{mail_title}','{mail_body}','','0','{mail_keyid}')
+    '''
+    conn.OracleConn.exec(sql)
+
+
+# Get upload data
+def get_upload_data(upload_id):
+    dict_data = {}
+    json_data_total = []
+    json_data_detail = []
+
+    # Total data
+    sql = f'''
+    select row_number() over(ORDER BY bb.lotid) as 序号,case bb.substratetype when 'A' THEN '保税' when 'B' THEN '非保税' else '未知' end as 是否保税,
+    bb.customershortname as 客户代码,aa.po_num,aa.mpn_desc as 客户机种名,aa.Fab_conv_id as 客户Fab机种,aa.mtrl_num as 厂内机种,cc.MARKETLASTUPDATE_BY AS 晶圆料号,
+    bb.lotid AS LOTID,count(bb.wafer_id) AS 片,sum(bb.passbincount + bb.failbincount) Dies,bb.qtech_created_by, to_char(bb.qtech_created_date,'yyyy-MM-dd')
+    from customeroitbl_test aa inner join mappingdatatest bb on to_char(aa.id) = bb.filename INNER JOIN TBLTSVNPIPRODUCT cc ON aa.CUSTOMERSHORTNAME  = cc.CUSTOMERSHORTNAME 
+    AND aa.MPN_DESC  = cc.CUSTOMERPTNO1 AND aa.FAB_CONV_ID  = cc.CUSTOMERPTNO2  where aa.wafer_visual_inspect = '{upload_id}'
+    group by bb.customershortname,aa.Fab_conv_id,aa.mpn_desc,bb.lotid,aa.mtrl_num,bb.passbincount,bb.failbincount,aa.po_num,bb.qtech_created_by,
+    to_char(bb.qtech_created_date,'yyyy-MM-dd'),bb.substratetype,cc.MARKETLASTUPDATE_BY 
+    '''
+    results = conn.OracleConn.query(sql)
+    for row in results:
+        result = {}
+        result['id'] = str(row[0])
+        result['banded'] = str(row[1])
+        result['cust_code'] = str(row[2])
+        result['po_id'] = str(row[3])
+        result['cust_device'] = str(row[4])
+        result['fab_device'] = str(row[5])
+        result['ht_pn'] = str(row[6])
+        result['wafer_pn'] = str(row[7])
+        result['lot_id'] = str(row[8])
+        result['wafer_qty'] = str(row[9])
+        result['die_qty'] = str(row[10])
+        result['upload_by'] = str(row[11])
+        result['upload_date'] = str(row[12])
+
+        json_data_total.append(result)
+
+    dict_data['total_data'] = json_data_total
+
+    # Detail data
+    sql = f'''
+    select row_number() over(ORDER BY  bb.lotid,bb.substrateid) as 序号,case bb.substratetype when 'A' then '保税' when 'B' then '非保税' else '未知' end as 是否保税, bb.customershortname as 客户代码, 
+          aa.Fab_conv_id as FAB机种,aa.mpn_desc as 客户机种,cc.residual as NPI负责人员, 
+          aa.mtrl_num as 厂内机种, 
+          aa.po_num as PO_NUM, 
+          bb.lotid as LOT_ID, 
+          bb.wafer_id as WAFER_NO, 
+          bb.substrateid as WAFERID, 
+          bb.passbincount as GOOD_DIES, 
+          bb.failbincount as NG_DIES, 
+          bb.passbincount + bb.failbincount as GROSS_DIES, 
+          bb.productid as 打标码, 
+          aa.Imager_Customer_Rev as 二级代码, bb.qtech_created_by as 上传人员,bb.qtech_created_date as 上传时间,  bb.qtech_lastupdate_by as 更新人员, bb.qtech_lastupdate_date as 更新时间 
+     from customeroitbl_test aa 
+     left join tbltsvnpiproduct cc on cc.customerptno1 = aa.mpn_desc  and  cc.qtechptno = aa.mtrl_num  and cc.customershortname = aa.customershortname and cc.residual is not null 
+    inner join mappingdatatest bb 
+       on to_char(aa.id) = bb.filename 
+      and aa.wafer_visual_inspect = '{upload_id}'
+      group by  bb.customershortname,cc.residual,aa.mtrl_num,aa.Fab_conv_id, aa.mpn_desc,aa.po_num,bb.lotid,bb.wafer_id,bb.substrateid,bb.passbincount,bb.failbincount,bb.productid,aa.Imager_Customer_Rev ,bb.substratetype,bb.qtech_created_by,bb.qtech_created_date,bb.qtech_lastupdate_by,bb.qtech_lastupdate_date 
+    '''
+
+    results = conn.OracleConn.query(sql)
+    for row in results:
+        result = {}
+        result['id'] = str(row[0])
+        result['banded'] = str(row[1])
+        result['cust_code'] = str(row[2])
+        result['fab_device'] = str(row[3])
+        result['cust_device'] = str(row[4])
+        result['npi_owner'] = str(row[5])
+        result['ht_pn'] = str(row[6])
+        result['po_id'] = str(row[7])
+        result['lot_id'] = str(row[8])
+        result['wafer_no'] = str(row[9])
+        result['wafer_id'] = str(row[10])
+        result['good_dies'] = str(row[11])
+        result['ng_dies'] = str(row[12])
+        result['gross_dies'] = str(row[13])
+        result['mark_code'] = str(row[14])
+        result['second_code'] = str(row[15])
+        result['upload_by'] = str(row[16])
+        result['upload_date'] = str(row[17])
+        result['update_by'] = str(row[18])
+        result['update_date'] = str(row[19])
+
+        json_data_detail.append(result)
+
+    dict_data['detail_data'] = json_data_detail
+
+    return dict_data
 
 
 # Parse po file
@@ -213,8 +331,8 @@ def save_po_data(po_header, po_dic, po_data):
         wafer_id_list = get_wafer_list(item['wafer_id'])
         num = num + len(wafer_id_list)
 
-    sql = "select PO_ITEM_SEQ.nextval from dual"
-    po_header['upload_id'] = conn.OracleConn.query(sql)[0][0]
+    # sql = "select PO_ITEM_SEQ.nextval from dual"
+    # po_header['upload_id'] = conn.OracleConn.query(sql)[0][0]
 
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
