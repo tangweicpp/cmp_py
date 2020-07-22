@@ -7,6 +7,7 @@
 @License :   (C)Copyright 2020-2021
 @Desc    :   None
 '''
+
 from flask import Flask
 from flask import jsonify
 from flask import request
