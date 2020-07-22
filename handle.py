@@ -19,7 +19,6 @@ from openpyxl.utils import get_column_letter, column_index_from_string
 
 
 user_progress = {}
-# 解决oracle中文乱码问题
 os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 
 
