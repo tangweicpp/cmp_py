@@ -10,7 +10,6 @@
 import connect_db as conn
 import time
 import os
-import logging
 import send_email as se
 import pandas as pd
 import numpy as np
@@ -22,19 +21,15 @@ from openpyxl.utils import get_column_letter, column_index_from_string
 user_progress = {}
 # 解决oracle中文乱码问题
 os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
+
+
 # None转空字符串
-
-
 def xstr(s):
-    # return '' if s is None else  str(s).strip().replace('\\','')
     return '' if s is None else str(s).strip()
 
-
-logging.basicConfig(level=logging.INFO, filename='erp.txt',
-                    format='%(asctime)s :: %(funcName)s :: %(levelname)s :: %(message)s')
-
-
 # Upload progress
+
+
 def get_progress(user_key):
     global user_progress
     return user_progress[f'{user_key}']
@@ -144,7 +139,6 @@ def send_mail(ret_data, po_header, mail_attachment):
 
     se.send_email(mail_title, mail_body, mail_attachment,
                   mail_recv, mail_recv_cc)
-
 
 
 # Get mail body

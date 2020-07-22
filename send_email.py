@@ -42,7 +42,7 @@ def send_email(subject, body, file_path, to_reciver, cc_reciver):
         smtpObj = smtplib.SMTP('ksmail.ht-tech.com:587')
         smtpObj.login('sqladmin@ht-tech.com', 'ksitadmin')
         smtpObj.sendmail(sender, reciver, message.as_string())
-        print("邮件发送成功")
+        print("Success to send email!!!")
         smtpObj.quit()
         return True
     except smtplib.SMTPException as e:
