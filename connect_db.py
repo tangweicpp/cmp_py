@@ -3,7 +3,7 @@ import pymssql as mss
 import pyhdb as hdb
 import logging
 
-logging.basicConfig(level=logging.ERROR, filename='erp.txt',
+logging.basicConfig(level=logging.INFO, filename='log.txt',
                     format='%(asctime)s :: %(funcName)s :: %(levelname)s :: %(message)s')
 
 
