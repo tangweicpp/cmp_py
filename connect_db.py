@@ -1,3 +1,12 @@
+'''
+@File    :   handle.py
+@Time    :   2020/07/09 15:30:00
+@Author  :   Tang wei
+@Version :   1.0
+@Contact :   wei.tang_ks@ht-tech.com
+@License :   (C)Copyright 2020-2021
+@Desc    :   None
+'''
 import cx_Oracle as cx
 import pymssql as mss
 import pyhdb as hdb

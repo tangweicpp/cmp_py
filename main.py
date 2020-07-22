@@ -7,7 +7,6 @@
 @License :   (C)Copyright 2020-2021
 @Desc    :   None
 '''
-
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -54,7 +53,7 @@ def r_get_po_template():
 
 # Upload po file
 @app.route('/upload_po_file', methods=['GET', 'POST'])
-def upload_po_file():
+def r_upload_po_file():
     if request.method == 'POST':
         f = request.files.get('poFile')
         po_header = {}
