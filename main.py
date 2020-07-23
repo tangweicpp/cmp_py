@@ -33,10 +33,10 @@ def r_login():
 
 
 # Get customer list
-@app.route('/cust_list', methods=['GET', 'POST'])
-def r_get_custcode_list():
+@app.route('/cust_code_list', methods=['GET', 'POST'])
+def r_get_cust_code_list():
     if request.method == 'GET':
-        json_data = h.get_custcode_list()
+        json_data = h.get_cust_code_list()
 
         return make_response(jsonify(json_data), 200)
 
@@ -45,13 +45,15 @@ def r_get_custcode_list():
 @app.route('/po_template', methods=['GET', 'POST'])
 def r_get_po_template():
     if request.method == 'POST':
-        custcode = request.values.get('custcode')
-        json_data = h.get_po_template(custcode)
-
-        return make_response(jsonify(json_data), 200)
-
+        cust_code = request.values.get('custCode')
+        json_data = h.get_po_template(cust_code)
+        if json_data:
+            return make_response(jsonify(json_data), 200)
+        return "error",201
 
 # Upload po file
+
+
 @app.route('/upload_po_file', methods=['GET', 'POST'])
 def r_upload_po_file():
     if request.method == 'POST':

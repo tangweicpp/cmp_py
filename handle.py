@@ -18,7 +18,7 @@ import re
 from openpyxl.utils import get_column_letter, column_index_from_string
 
 
-user_progress = {}
+upload_task = {}
 os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 
 
@@ -30,8 +30,8 @@ def xstr(s):
 
 
 def get_progress(user_key):
-    global user_progress
-    return user_progress[f'{user_key}']
+    global upload_task
+    return upload_task[f'{user_key}']
 
 
 # Check username and password
@@ -50,7 +50,7 @@ def check_account(username, password):
 
 
 # Get customer list
-def get_custcode_list():
+def get_cust_code_list():
     jsonData = []
 
     sql = "SELECT DISTINCT CUSTOMERSHORTNAME FROM TBLTSVNPIPRODUCT ORDER BY CUSTOMERSHORTNAME "
@@ -65,14 +65,14 @@ def get_custcode_list():
 
 
 # Get customer po template
-def get_po_template(custcode):
-    if not custcode:
+def get_po_template(cust_code):
+    if not cust_code:
         print('客户代码不可为空')
-        return []
+        return False
 
     jsonData = []
     sql = "SELECT CUST_CODE,TEMPLATE_FILE ,TEMPLATE_PIC ,KEY_LIST ,FILE_LEVEL,FILE_URL,ACCEPT,TEMPLATE_ID FROM CMP_CUST_PO_TEMPLATE WHERE CUST_CODE  = '%s'" % (
-        custcode)
+        cust_code)
     results = conn.OracleConn.query(sql)
     for row in results:
         result = {}
@@ -93,11 +93,11 @@ def get_po_template(custcode):
 
 # Upload po file
 def upload_po_file(f, po_header):
-    global user_progress
+    global upload_task
     if not f:
         print('文件不存在')
         return False
-
+    upload_task[f'{po_header['file_id']}'] = 0
     file_dir = os.path.join(os.getcwd(), 'uploads/po/' +
                             po_header['po_type']+'/'+po_header['cust_code'])
     if not os.path.exists(file_dir):
@@ -114,7 +114,7 @@ def upload_po_file(f, po_header):
     parse_po_file(file_path, po_header)
 
     # Del user key
-    # del user_progress[po_header['file_id']]
+    # del upload_task[po_header['file_id']]
 
     ret = get_upload_data(po_header['upload_id'])
 
@@ -367,8 +367,7 @@ def check_po_data(po_header, po_dic, po_data):
 
 # Save po data
 def save_po_data(po_header, po_dic, po_data):
-    global user_progress
-    user_progress[po_header['file_id']] = 0
+    global upload_task
     num = 0
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
@@ -384,8 +383,7 @@ def save_po_data(po_header, po_dic, po_data):
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
-            user_progress[po_header['file_id']
-                          ] = user_progress[po_header['file_id']] + 100 / float(num)
+            upload_task[f'{po_header['file_id']}'] = upload_task[f'{po_header['file_id']}'] + 100 / float(num)
 
 
 def insert_po_data(wafer_id, po_header, po_data):

@@ -858,3 +858,327 @@
 2020-07-23 07:09:51,712 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:09:51] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
 2020-07-23 07:09:51,884 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:09:51] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
 2020-07-23 07:09:54,246 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:09:54] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 07:13:51,125 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 07:13:51,127 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 07:13:52,029 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 07:13:52,032 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 07:13:54,265 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:13:54] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 07:14:00,434 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:00] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 07:14:05,348 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:05] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 07:14:10,784 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:10] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 07:14:15,252 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:15] "[37mOPTIONS /upload_po_file HTTP/1.1[0m" 200 -
+2020-07-23 07:14:15,328 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:15] "[35m[1mPOST /upload_po_file HTTP/1.1[0m" 500 -
+2020-07-23 07:14:15,546 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:15] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:15,762 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:15] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:15,948 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:15] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:16,146 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:16] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:16,346 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:16] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:16,549 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:16] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:16,749 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:16] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:16,948 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:16] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:17,147 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:17] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:17,348 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:17] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:17,547 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:17] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:17,746 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:17] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:17,951 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:17] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:18,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:18] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:18,345 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:18] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:18,547 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:18] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:18,749 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:18] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:18,949 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:18] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:19,147 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:19] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:19,347 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:19] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:19,548 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:19] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:19,746 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:19] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:19,950 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:19] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:20,147 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:20] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:20,345 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:20] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:20,548 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:20] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:20,747 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:20] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:20,962 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:20] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:21,149 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:21] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:21,346 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:21] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:21,548 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:21] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:21,747 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:21] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:21,949 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:21] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:22,150 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:22] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:22,351 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:22] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:22,548 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:22] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:22,747 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:22] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:22,952 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:22] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:23,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:23] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:23,347 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:23] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:23,546 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:23] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:23,746 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:23] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:23,951 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:23] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:24,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:24] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:24,348 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:24] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:24,547 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:24] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:24,747 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:24] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:24,955 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:24] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:25,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:25] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:25,347 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:25] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:25,546 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:25] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:25,748 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:25] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:25,950 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:25] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:26,147 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:26] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:26,348 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:26] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:26,549 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:26] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:26,759 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:26] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:26,947 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:26] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:27,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:27] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:27,348 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:27] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:27,548 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:27] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:27,750 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:27] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:27,948 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:27] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:28,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:28] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:28,395 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:28] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:28,689 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:28] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:28,856 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:28] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:29,052 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:29] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:29,158 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:29] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:29,355 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:29] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:29,666 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:29] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:29,949 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:29] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:30,255 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:30] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:30,446 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:30] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:31,184 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:31] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:31,467 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:31] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,148 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,172 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,303 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,362 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,438 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,477 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,509 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,558 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,651 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:32,831 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:32] "[35m[1mGET /update_progress?userKey=3 HTTP/1.1[0m" 500 -
+2020-07-23 07:14:34,469 :: _log :: INFO :: 10.160.31.173 - - [23/Jul/2020 07:14:34] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 11:59:24,855 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 11:59:24,866 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 11:59:26,390 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 11:59:26,439 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 11:59:41,204 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 11:59:41] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 11:59:48,525 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 11:59:48] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 12:03:14,435 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:03:14] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 12:03:23,092 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:03:23] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:03:26,552 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:03:26] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 12:03:36,552 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:03:36] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:04:34,865 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:04:34] "[37mGET /cust_list HTTP/1.1[0m" 200 -
+2020-07-23 12:09:18,757 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:09:19,383 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:09:20,216 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:09:20,218 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:10:07,716 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-23 12:10:07,830 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:10:08,715 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:10:08,717 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:10:42,090 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-23 12:10:42,306 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:10:43,447 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:10:43,449 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:12:36,242 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:12:36,244 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:12:37,107 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:12:37,109 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:13:15,517 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:13:15] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:14:00,945 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:14:00] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:14:54,809 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:14:54] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:15:02,796 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:15:02] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:15:08,081 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:15:08] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:15:20,810 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:15:20] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:15:44,134 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:15:44,382 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:15:46,970 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:15:46,972 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:15:47,729 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:15:47,737 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:15:54,820 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:15:54] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:16:14,390 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:16:14] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:16:41,585 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:16:41] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:16:51,880 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:16:51] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:17:12,656 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:17:12,879 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:17:13,752 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:17:13,754 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:17:17,289 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:17:17,289 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:17:18,087 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:17:18,089 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:19:20,822 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:19:20] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:19:26,783 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:19:26] "[33mGET /cust_list HTTP/1.1[0m" 404 -
+2020-07-23 12:20:07,671 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:20:07,681 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:20:09,138 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:20:09,183 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:20:17,488 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:20:17] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:20:20,633 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:20:20] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:20:23,733 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:20:23] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:20:27,895 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:20:27] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:23:02,026 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:23:02,488 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:23:03,413 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:23:03,415 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:23:07,676 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:23:07,677 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:23:08,428 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:23:08,429 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:23:44,193 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:23:44] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:23:56,863 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:23:56] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:24:03,194 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:24:03] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:24:05,948 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:24:05] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:24:12,357 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:24:12] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:24:54,039 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:24:54] "[31m[1mPOST /po_template HTTP/1.1[0m" 401 -
+2020-07-23 12:26:25,440 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:25] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:26:25,509 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:25] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:26:39,350 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:39] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:26:43,865 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:43] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:26:46,573 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:46] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:26:49,749 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:26:49] "[31m[1mPOST /po_template HTTP/1.1[0m" 401 -
+2020-07-23 12:28:19,159 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:28:19,403 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:28:22,430 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:28:22,431 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:28:23,332 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:28:23,334 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:28:29,140 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:28:29] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:28:35,815 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:28:35] "[33mPOST /po_template HTTP/1.1[0m" 404 -
+2020-07-23 12:28:51,642 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:28:51,902 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:28:53,203 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:28:53,205 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:29:00,468 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:29:00,468 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:29:01,233 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:29:01,236 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:29:04,365 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:29:04] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:29:08,405 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:29:08] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:29:15,912 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:29:15] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:29:18,049 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:29:18] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:29:19,720 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:29:19] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:30:33,239 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:30:35,299 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:30:35,300 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:30:36,163 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:30:36,165 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:30:43,901 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:30:43] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:30:59,306 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:30:59,308 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:31:00,161 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:31:00,163 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:31:03,968 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:31:03] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:33:41,266 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:33:43,027 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:33:44,473 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:33:44,478 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:35:56,943 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:35:57,222 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:35:58,555 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:35:58,581 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:36:09,751 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:36:09,987 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:36:11,553 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:36:11,564 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:36:16,808 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:36:16] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:36:21,760 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:36:21] "[37mPOST /po_template HTTP/1.1[0m" 204 -
+2020-07-23 12:37:51,696 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:37:52,105 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:37:55,352 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:37:55,362 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:38:05,469 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-23 12:38:05,589 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:39:16,828 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:39:16,888 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:39:18,701 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:39:18,710 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:39:36,904 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:39:36] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-23 12:39:39,467 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:39:39] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:39:41,698 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:39:41] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:40:08,753 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:40:08] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:41:05,908 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:41:06,080 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:41:06,912 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:41:06,913 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:41:08,775 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:41:08,776 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:41:09,513 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:41:09,514 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:41:12,386 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:41:12] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:42:10,147 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:42:10,323 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:42:12,574 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:42:12,574 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:42:13,326 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:42:13,326 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:42:17,009 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:42:17] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:42:32,895 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:42:32] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:43:06,903 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:43:07,000 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:43:07,717 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:43:07,718 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:43:11,979 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:43:11,980 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:43:12,708 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:43:12,709 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:43:17,489 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:43:17] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:43:36,983 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:43:37,114 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:43:37,989 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:43:37,989 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:43:44,646 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:43:44,647 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:43:45,394 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:43:45,394 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:43:49,714 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:43:49] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:45:11,326 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:45:11,427 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:45:12,165 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:45:12,166 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:45:14,181 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:45:14,182 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:45:14,916 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:45:14,916 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:45:18,616 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:45:18] "[35m[1mPOST /po_template HTTP/1.1[0m" 500 -
+2020-07-23 12:52:24,477 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:52:24,589 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:52:25,372 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:52:25,373 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:52:27,680 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:52:27,682 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:52:28,426 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:52:28,427 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:52:36,543 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:52:36] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:53:01,772 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:53:01,871 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:53:02,732 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:53:02,733 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:53:04,494 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:53:04,495 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:53:05,239 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:53:05,241 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:53:09,282 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:53:09] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:55:13,634 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-23 12:55:13,727 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:55:14,773 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:55:14,773 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:55:17,148 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-23 12:55:17,148 :: _log :: INFO ::  * Restarting with stat
+2020-07-23 12:55:17,874 :: _log :: WARNING ::  * Debugger is active!
+2020-07-23 12:55:17,874 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-23 12:56:07,413 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:07] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:56:15,542 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:15] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 12:56:18,109 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:18] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:56:31,898 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:31] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:56:40,891 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:40] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:56:49,441 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:49] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:56:59,826 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:56:59] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 12:57:54,281 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:57:54] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:57:58,944 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:57:58] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:58:15,191 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:58:15] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 12:58:26,421 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 12:58:26] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 13:00:30,601 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 13:00:30] "[37mPOST /po_template HTTP/1.1[0m" 201 -
+2020-07-23 13:00:37,911 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 13:00:37] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-23 13:06:42,906 :: _log :: INFO :: 10.160.1.1 - - [23/Jul/2020 13:06:42] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-23 13:11:18,974 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-23 13:11:19,757 :: _log :: INFO ::  * Restarting with stat
