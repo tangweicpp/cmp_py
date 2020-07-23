@@ -57,6 +57,7 @@ def r_upload_po_file():
     if request.method == 'POST':
         f = request.files.get('poFile')
         po_header = {}
+        po_header['user_name'] = request.values.get('userName')
         po_header['cust_code'] = request.values.get('custCode')
         po_header['po_type'] = request.values.get('poType')
         po_header['po_price'] = request.values.get('poPrice')
@@ -67,6 +68,8 @@ def r_upload_po_file():
         po_header['mail_content'] = request.values.get('mailContent')
         po_header['user_upload_progress'] = request.values.get(
             'userUploadRandom')
+
+        print("用户名为：", po_header['user_name'])
         json_data = h.upload_po_file(f, po_header)
 
         return make_response(jsonify(json_data), 200)
