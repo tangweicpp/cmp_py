@@ -82,7 +82,7 @@ def r_update_progress():
     if request.method == 'GET':
         user_key = request.args.get('userKey')
         num = h.get_progress(user_key)
-        return make_response(jsonify({user_key: num}), 200)
+        return make_response(jsonify({"progress": num}), 200)
 
 
 # Run server

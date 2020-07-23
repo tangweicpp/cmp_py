@@ -97,7 +97,7 @@ def upload_po_file(f, po_header):
     if not f:
         print('文件不存在')
         return False
-    upload_task[f"{po_header['file_id']}"] = 0
+    upload_task[po_header['file_id']] = 0
     file_dir = os.path.join(os.getcwd(), 'uploads/po/' +
                             po_header['po_type']+'/'+po_header['cust_code'])
     if not os.path.exists(file_dir):
@@ -383,7 +383,8 @@ def save_po_data(po_header, po_dic, po_data):
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
-            upload_task[f"{po_header['file_id']}"] = upload_task[f"{po_header['file_id']}"] + 100 / float(num)
+            upload_task[po_header['file_id']
+                        ] = upload_task[po_header['file_id']] + 100 / float(num)
 
 
 def insert_po_data(wafer_id, po_header, po_data):
