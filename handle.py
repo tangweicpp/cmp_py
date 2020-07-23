@@ -114,7 +114,7 @@ def upload_po_file(f, po_header):
     parse_po_file(file_path, po_header)
 
     # Del user key
-    # del user_progress[po_header['user_upload_progress']]
+    # del user_progress[po_header['file_id']]
 
     ret = get_upload_data(po_header['upload_id'])
 
@@ -129,11 +129,14 @@ def send_mail(ret_data, po_header, mail_attachment):
     mail_keyid = po_header['upload_id']
 
     mail_body = get_mail_body(
-        '07885', mail_keyid, po_header['mail_content'], ret_data)
+        po_header['user_name'], mail_keyid, po_header['mail_tip'], ret_data)
+
     sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
     mail_recv = conn.OracleConn.query(sql)[0][0].split(',')
+
     sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
     mail_recv_cc = conn.OracleConn.query(sql)[0][0].split(',')
+
     mail_title = '测试新版WO上传'
 
     se.send_email(mail_title, mail_body, mail_attachment,
@@ -365,14 +368,11 @@ def check_po_data(po_header, po_dic, po_data):
 # Save po data
 def save_po_data(po_header, po_dic, po_data):
     global user_progress
-    user_progress[po_header['user_upload_progress']] = 0
+    user_progress[po_header['file_id']] = 0
     num = 0
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
         num = num + len(wafer_id_list)
-
-    # sql = "select PO_ITEM_SEQ.nextval from dual"
-    # po_header['upload_id'] = conn.OracleConn.query(sql)[0][0]
 
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
@@ -384,8 +384,8 @@ def save_po_data(po_header, po_dic, po_data):
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
-            user_progress[po_header['user_upload_progress']
-                          ] = user_progress[po_header['user_upload_progress']] + 100 / float(num)
+            user_progress[po_header['file_id']
+                          ] = user_progress[po_header['file_id']] + 100 / float(num)
 
 
 def insert_po_data(wafer_id, po_header, po_data):
@@ -394,9 +394,8 @@ def insert_po_data(wafer_id, po_header, po_data):
     sql = "select CustomerBCtbl_SEQ.nextval ID from dual"
     max_id = conn.OracleConn.query(sql)[0][0]
     upload_id = po_header['upload_id']
-    # bonded = 'A' if (po_header['is_bonded'] == '保税') else 'B'
-    bonded = 'A' if po_header['is_bonded'] == '保税' else 'B'
-
+    bonded = 'A' if po_header['bonded_type'] == '保税' else 'B'
+    create_by = po_header['user_name']
     mark_id = 'ABC' + wafer_id
     lot_id = po_data['lot_id']
     cust_code = po_header['cust_code']
@@ -415,8 +414,8 @@ def insert_po_data(wafer_id, po_header, po_data):
     sql = ''' insert into mappingDataTest(id,substrateid,substratetype,productid,micronlotid,lotid,Wafer_ID,passbincount,
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
               values( mappingData_SEQ.Nextval,'%s','%s','%s','%s',
-                     '%s','%s','%s','%s','%s','Y','07885',sysdate,'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_id, mark_id, lot_id, wafer_id, passbin_count, failbin_count, cust_code, max_id)
+                     '%s','%s','%s','%s','%s','Y','%s',sysdate,'%s')
+          ''' % (lot_id+wafer_id, bonded, mark_id, mark_id, lot_id, wafer_id, passbin_count, failbin_count, cust_code, create_by, max_id)
 
     conn.OracleConn.exec(sql)
 
@@ -425,7 +424,7 @@ def insert_po_data(wafer_id, po_header, po_data):
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
-            'Y','07885',sysdate,'','','','','','','','','','','{lot_id}','HTKS','')
+            'Y','{create_by}',sysdate,'','','','','','','','','','','{lot_id}','HTKS','')
           '''
 
     conn.OracleConn.exec(sql)
@@ -433,8 +432,8 @@ def insert_po_data(wafer_id, po_header, po_data):
     # Sqlserver insert
     sql = ''' insert into [ERPBASE].[dbo].[tblmappingData](substrateid,substratetype,productid,lotid,Wafer_ID,passbincount,
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
-              values('%s','%s','%s','%s','%s','%s','0','%s','Y','07885',getdate(),'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_id, lot_id, wafer_id, passbin_count, cust_code, max_id)
+              values('%s','%s','%s','%s','%s','%s','0','%s','Y','%s',getdate(),'%s')
+          ''' % (lot_id+wafer_id, bonded, mark_id, lot_id, wafer_id, passbin_count, cust_code, create_by, max_id)
 
     conn.MssConn.exec(sql)
 
@@ -443,7 +442,7 @@ def insert_po_data(wafer_id, po_header, po_data):
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
-            'Y','07885',getdate(),'','','','','','','','','','','{lot_id}','HTKS','')
+            'Y','{create_by}',getdate(),'','','','','','','','','','','{lot_id}','HTKS','')
           '''
     conn.MssConn.exec(sql)
 
