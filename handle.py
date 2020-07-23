@@ -31,7 +31,7 @@ def xstr(s):
 
 def get_progress(user_key):
     global upload_task
-    return upload_task[f'{user_key}']
+    return upload_task[user_key]
 
 
 # Check username and password
@@ -97,7 +97,7 @@ def upload_po_file(f, po_header):
     if not f:
         print('文件不存在')
         return False
-    upload_task[f'{po_header['file_id']}'] = 0
+    upload_task[f"{po_header['file_id']}"] = 0
     file_dir = os.path.join(os.getcwd(), 'uploads/po/' +
                             po_header['po_type']+'/'+po_header['cust_code'])
     if not os.path.exists(file_dir):
@@ -289,7 +289,7 @@ def parse_po_file(file_name, po_header):
 # Get Json config
 def get_po_config(po_header):
     sql = "SELECT TEMPLATE_CONFIG FROM CMP_CUST_PO_TEMPLATE WHERE TEMPLATE_ID  = %s" % (
-        po_header['template_id'])
+        po_header['file_id'])
     results = conn.OracleConn.query(sql)
     if not results:
         print("无法获取配置文件")
@@ -383,7 +383,7 @@ def save_po_data(po_header, po_dic, po_data):
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
-            upload_task[f'{po_header['file_id']}'] = upload_task[f'{po_header['file_id']}'] + 100 / float(num)
+            upload_task[f"{po_header['file_id']}"] = upload_task[f"{po_header['file_id']}"] + 100 / float(num)
 
 
 def insert_po_data(wafer_id, po_header, po_data):

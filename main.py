@@ -49,7 +49,7 @@ def r_get_po_template():
         json_data = h.get_po_template(cust_code)
         if json_data:
             return make_response(jsonify(json_data), 200)
-        return "error",201
+        return "error", 201
 
 # Upload po file
 
@@ -81,8 +81,8 @@ def r_upload_po_file():
 def r_update_progress():
     if request.method == 'GET':
         user_key = request.args.get('userKey')
-        num = str(h.get_progress(user_key))
-        return str(num)
+        num = h.get_progress(user_key)
+        return make_response(jsonify({user_key: num}), 200)
 
 
 # Run server
