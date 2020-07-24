@@ -2,9 +2,11 @@
     "customer_code": "BJ105",
     "file_name": "SCT2320F13P_20200709_Bump_Prod.xlsx",
     "file_type": "xlsx",
+    "file_index": 0,
+    "file_header": 0,
     "file_max_cols": 22,
     "file_max_rows": 100,
-    "file_keys": {
+    "file_key": {
         "po_id": {
             "position": {
                 "col_num": 3,

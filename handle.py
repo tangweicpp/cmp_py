@@ -98,36 +98,34 @@ def get_po_template(cust_code):
 # Upload po file
 def upload_po_file(f, po_header):
     global upload_task
+    upload_task[po_header['file_id']] = 0
+
     if not f:
         print('文件不存在')
         po_header['err_desc'] = '上传的文件不存在'
         return False
 
-    upload_task[po_header['file_id']] = 0
     file_dir = os.path.join(os.getcwd(), 'uploads/po/' +
                             po_header['po_type']+'/'+po_header['cust_code'])
+
     if not os.path.exists(file_dir):
         os.makedirs(file_dir)
 
     file_path = os.path.join(file_dir, f.filename)
     f.save(file_path)
 
-    # Set upload id
     sql = "select PO_ITEM_SEQ.nextval from dual"
     po_header['upload_id'] = conn.OracleConn.query(sql)[0][0]
 
-    # Parse
-    parse_po_file(file_path, po_header)
-
-    # Del user key
-    # del upload_task[po_header['file_id']]
+    if not parse_po_file(file_path, po_header):
+        return False
 
     ret = get_upload_data(po_header['upload_id'])
 
-    # Send mail
     send_mail(ret, po_header, file_path)
 
     upload_task[po_header['file_id']] = 100
+
     return ret
 
 
@@ -203,10 +201,10 @@ def get_upload_data(upload_id):
     select row_number() over(ORDER BY bb.lotid) as 序号,case bb.substratetype when 'A' THEN '保税' when 'B' THEN '非保税' else '未知' end as 是否保税,
     bb.customershortname as 客户代码,aa.po_num,aa.mpn_desc as 客户机种名,aa.Fab_conv_id as 客户Fab机种,aa.mtrl_num as 厂内机种,cc.MARKETLASTUPDATE_BY AS 晶圆料号,
     bb.lotid AS LOTID,count(bb.wafer_id) AS 片,sum(bb.passbincount + bb.failbincount) Dies,bb.qtech_created_by, to_char(bb.qtech_created_date,'yyyy-MM-dd')
-    from customeroitbl_test aa inner join mappingdatatest bb on to_char(aa.id) = bb.filename INNER JOIN TBLTSVNPIPRODUCT cc ON aa.CUSTOMERSHORTNAME  = cc.CUSTOMERSHORTNAME 
+    from customeroitbl_test aa inner join mappingdatatest bb on to_char(aa.id) = bb.filename INNER JOIN TBLTSVNPIPRODUCT cc ON aa.CUSTOMERSHORTNAME  = cc.CUSTOMERSHORTNAME
     AND aa.MPN_DESC  = cc.CUSTOMERPTNO1 AND aa.FAB_CONV_ID  = cc.CUSTOMERPTNO2  where aa.wafer_visual_inspect = '{upload_id}'
     group by bb.customershortname,aa.Fab_conv_id,aa.mpn_desc,bb.lotid,aa.mtrl_num,bb.passbincount,bb.failbincount,aa.po_num,bb.qtech_created_by,
-    to_char(bb.qtech_created_date,'yyyy-MM-dd'),bb.substratetype,cc.MARKETLASTUPDATE_BY 
+    to_char(bb.qtech_created_date,'yyyy-MM-dd'),bb.substratetype,cc.MARKETLASTUPDATE_BY
     '''
     results = conn.OracleConn.query(sql)
     for row in results:
@@ -231,24 +229,24 @@ def get_upload_data(upload_id):
 
     # Detail data
     sql = f'''
-    select row_number() over(ORDER BY  bb.lotid,bb.substrateid) as 序号,case bb.substratetype when 'A' then '保税' when 'B' then '非保税' else '未知' end as 是否保税, bb.customershortname as 客户代码, 
-          aa.Fab_conv_id as FAB机种,aa.mpn_desc as 客户机种,cc.residual as NPI负责人员, 
-          aa.mtrl_num as 厂内机种, 
-          aa.po_num as PO_NUM, 
-          bb.lotid as LOT_ID, 
-          bb.wafer_id as WAFER_NO, 
-          bb.substrateid as WAFERID, 
-          bb.passbincount as GOOD_DIES, 
-          bb.failbincount as NG_DIES, 
-          bb.passbincount + bb.failbincount as GROSS_DIES, 
-          bb.productid as 打标码, 
-          aa.Imager_Customer_Rev as 二级代码, bb.qtech_created_by as 上传人员,bb.qtech_created_date as 上传时间,  bb.qtech_lastupdate_by as 更新人员, bb.qtech_lastupdate_date as 更新时间 
-     from customeroitbl_test aa 
-     left join tbltsvnpiproduct cc on cc.customerptno1 = aa.mpn_desc  and  cc.qtechptno = aa.mtrl_num  and cc.customershortname = aa.customershortname and cc.residual is not null 
-    inner join mappingdatatest bb 
-       on to_char(aa.id) = bb.filename 
+    select row_number() over(ORDER BY  bb.lotid,bb.substrateid) as 序号,case bb.substratetype when 'A' then '保税' when 'B' then '非保税' else '未知' end as 是否保税, bb.customershortname as 客户代码,
+          aa.Fab_conv_id as FAB机种,aa.mpn_desc as 客户机种,cc.residual as NPI负责人员,
+          aa.mtrl_num as 厂内机种,
+          aa.po_num as PO_NUM,
+          bb.lotid as LOT_ID,
+          bb.wafer_id as WAFER_NO,
+          bb.substrateid as WAFERID,
+          bb.passbincount as GOOD_DIES,
+          bb.failbincount as NG_DIES,
+          bb.passbincount + bb.failbincount as GROSS_DIES,
+          bb.productid as 打标码,
+          aa.Imager_Customer_Rev as 二级代码, bb.qtech_created_by as 上传人员,bb.qtech_created_date as 上传时间,  bb.qtech_lastupdate_by as 更新人员, bb.qtech_lastupdate_date as 更新时间
+     from customeroitbl_test aa
+     left join tbltsvnpiproduct cc on cc.customerptno1 = aa.mpn_desc  and  cc.qtechptno = aa.mtrl_num  and cc.customershortname = aa.customershortname and cc.residual is not null
+    inner join mappingdatatest bb
+       on to_char(aa.id) = bb.filename
       and aa.wafer_visual_inspect = '{upload_id}'
-      group by  bb.customershortname,cc.residual,aa.mtrl_num,aa.Fab_conv_id, aa.mpn_desc,aa.po_num,bb.lotid,bb.wafer_id,bb.substrateid,bb.passbincount,bb.failbincount,bb.productid,aa.Imager_Customer_Rev ,bb.substratetype,bb.qtech_created_by,bb.qtech_created_date,bb.qtech_lastupdate_by,bb.qtech_lastupdate_date 
+      group by  bb.customershortname,cc.residual,aa.mtrl_num,aa.Fab_conv_id, aa.mpn_desc,aa.po_num,bb.lotid,bb.wafer_id,bb.substrateid,bb.passbincount,bb.failbincount,bb.productid,aa.Imager_Customer_Rev ,bb.substratetype,bb.qtech_created_by,bb.qtech_created_date,bb.qtech_lastupdate_by,bb.qtech_lastupdate_date
     '''
 
     results = conn.OracleConn.query(sql)
@@ -284,13 +282,24 @@ def get_upload_data(upload_id):
 
 # Parse po file
 def parse_po_file(file_name, po_header):
-    po_dic = get_po_config(po_header)
-    if not po_dic:
-        return
+    po_dict = get_po_config(po_header)
+    if not po_dict:
+        po_header['err_desc'] = '查询不到配置文件无法解析'
+        return False
 
-    file_type = po_dic['file_type']
+    file_type = po_dict['file_type']
+    if not file_name.endswith(file_type):
+        po_header['err_desc'] = '您上传的文件和模板设定的文件类型不一致'
+        return False
+
     if file_type == 'xlsx':
-        parse_xlsx_file(file_name, po_header, po_dic)
+        if not parse_xlsx_file(file_name, po_header, po_dict):
+            return False
+    else:
+        po_header['err_desc'] = '文件类型不支持解析'
+        return False
+
+    return True
 
 
 # Get Json config
@@ -301,47 +310,78 @@ def get_po_config(po_header):
     if not results:
         print("无法获取配置文件")
         return False
+
     template_config = results[0][0]
     file_dir = os.path.join(os.getcwd(), template_config)
-    # print("获取到配置文件", file_dir)
 
     f = open(file_dir, 'r', encoding="utf-8")
-    po_dic = json.load(f)
-    return po_dic
+    po_dict = json.load(f)
+    return po_dict
 
 
 # Parse xlsx file
-def parse_xlsx_file(file_name, po_header, po_dic):
-    df = pd.DataFrame(pd.read_excel(file_name, header=None))
-    keys = po_dic['file_keys']
-    po_data = []
-    for index, row in df.iterrows():
-        if index == 0:
-            continue
+def parse_xlsx_file(file_name, po_header, po_dict):
+    file_cfg = ['file_key', 'file_index', 'file_header', 'file_max_cols']
+    for item in file_cfg:
+        if not item in po_dict:
+            po_header['err_desc'] = '配置文件错误，请联系IT处理'
+            return False
 
+    file_key = po_dict['file_key']
+    file_index = po_dict['file_index']
+    file_header = po_dict['file_header']
+    file_max_cols = po_dict['file_max_cols']
+
+    po_data = []
+    df = pd.DataFrame(pd.read_excel(
+        file_name, sheet_name=file_index, header=file_header, keep_default_na=False))
+    for index, row in df.iterrows():
+        print(index, row)
         po_row_data = {}
-        po_row_data['po_id'] = str(
-            row[column_index_from_string(keys['po_id']['position']['col_char'])-1]).strip()
-        po_row_data['fab_device'] = str(
-            row[column_index_from_string(keys['fab_device']['position']['col_char'])-1]).strip()
-        po_row_data['customer_device'] = str(
-            row[column_index_from_string(keys['customer_device']['position']['col_char'])-1]).strip()
-        po_row_data['lot_id'] = str(
-            row[column_index_from_string(keys['lot_id']['position']['col_char'])-1]).strip()
-        po_row_data['wafer_id'] = str(
-            row[column_index_from_string(keys['wafer_id']['position']['col_char'])-1]).strip()
-        po_row_data['wafer_qty'] = str(
-            row[column_index_from_string(keys['wafer_qty']['position']['col_char'])-1]).strip()
-        # print(po_row_data)
+        col_name = file_key['po_id']['position']['col_name']
+        po_row_data['po_id'] = row[col_name]
+        col_name = file_key['fab_device']['position']['col_name']
+        po_row_data['fab_device'] = row[col_name]
+        col_name = file_key['customer_device']['position']['col_name']
+        po_row_data['customer_device'] = row[col_name]
+        col_name = file_key['lot_id']['position']['col_name']
+        po_row_data['lot_id'] = row[col_name]
+        col_name = file_key['wafer_id']['position']['col_name']
+        po_row_data['wafer_id'] = row[col_name]
+        col_name = file_key['wafer_qty']['position']['col_name']
+        po_row_data['wafer_qty'] = row[col_name]
+
         po_data.append(po_row_data)
 
+        # po_row_data = {}
+        # po_row_data['po_id'] = str(
+        #     row[column_index_from_string(file_key['po_id']['position']['col_char'])-1]).strip()
+        # po_row_data['fab_device'] = str(
+        #     row[column_index_from_string(file_key['fab_device']['position']['col_char'])-1]).strip()
+        # po_row_data['customer_device'] = str(
+        #     row[column_index_from_string(file_key['customer_device']['position']['col_char'])-1]).strip()
+        # po_row_data['lot_id'] = str(
+        #     row[column_index_from_string(file_key['lot_id']['position']['col_char'])-1]).strip()
+        # po_row_data['wafer_id'] = str(
+        #     row[column_index_from_string(file_key['wafer_id']['position']['col_char'])-1]).strip()
+        # po_row_data['wafer_qty'] = str(
+        #     row[column_index_from_string(file_key['wafer_qty']['position']['col_char'])-1]).strip()
+        # po_data.append(po_row_data)
+
     print(po_data)
-    check_po_data(po_header, po_dic, po_data)
-    save_po_data(po_header, po_dic, po_data)
+    if not check_po_data(po_header, po_dict, po_data):
+        return False
+
+    if not save_po_data(po_header, po_dict, po_data):
+        return False
+    return True
 
 
 # Get list
 def get_wafer_list(wafer_str):
+    if wafer_str == "":
+        return []
+
     wafer_str_new = re.sub(r'[_~-]', ' _ ', wafer_str)
     pattern = re.compile(r'[A-Za-z0-9_]+')
     result1 = pattern.findall(wafer_str_new)
@@ -368,13 +408,14 @@ def get_wafer_list(wafer_str):
 
 
 # Check po data
-def check_po_data(po_header, po_dic, po_data):
-    pass
+def check_po_data(po_header, po_dict, po_data):
+    return True
 
 
 # Save po data
-def save_po_data(po_header, po_dic, po_data):
+def save_po_data(po_header, po_dict, po_data):
     global upload_task
+
     num = 0
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
@@ -382,10 +423,13 @@ def save_po_data(po_header, po_dic, po_data):
 
     for item in po_data:
         wafer_id_list = get_wafer_list(item['wafer_id'])
-        # print(wafer_id_list)
+        if len(wafer_id_list) == 0:
+            continue
+
         wafer_qty = item['wafer_qty']
         if len(wafer_id_list) != int(wafer_qty):
             print('wafer qty和wafer list明细不一致')
+            po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
             return False
 
         for i in range(len(wafer_id_list)):
@@ -394,6 +438,8 @@ def save_po_data(po_header, po_dic, po_data):
                         ] = upload_task[po_header['file_id']] + 100 / float(num)
             if upload_task[po_header['file_id']] >= 100:
                 upload_task[po_header['file_id']] = 99
+
+    return True
 
 
 def insert_po_data(wafer_id, po_header, po_data):
