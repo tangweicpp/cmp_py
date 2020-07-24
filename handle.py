@@ -100,6 +100,7 @@ def upload_po_file(f, po_header):
     global upload_task
     if not f:
         print('文件不存在')
+        po_header['err_desc'] = '上传的文件不存在'
         return False
 
     upload_task[po_header['file_id']] = 0
