@@ -31,7 +31,8 @@ def xstr(s):
 
 def get_progress(user_key):
     global upload_task
-    if upload_task[user_key]:
+
+    if user_key in upload_task:
         return upload_task[user_key]
     return 0
 
@@ -54,7 +55,7 @@ def check_account(username, password):
 
 # Get customer list
 def get_cust_code_list():
-    jsonData = []
+    json_data = []
 
     sql = "SELECT DISTINCT CUSTOMERSHORTNAME FROM TBLTSVNPIPRODUCT ORDER BY CUSTOMERSHORTNAME "
     results = conn.OracleConn.query(sql)
@@ -63,8 +64,8 @@ def get_cust_code_list():
         result['value'] = str(row[0])
         result['label'] = str(row[0])
 
-        jsonData.append(result)
-    return jsonData
+        json_data.append(result)
+    return json_data
 
 
 # Get customer po template
@@ -73,7 +74,7 @@ def get_po_template(cust_code):
         print('客户代码不可为空')
         return []
 
-    jsonData = []
+    json_data = []
     sql = "SELECT CUST_CODE,TEMPLATE_FILE ,TEMPLATE_PIC ,KEY_LIST ,FILE_LEVEL,FILE_URL,ACCEPT,TEMPLATE_ID FROM CMP_CUST_PO_TEMPLATE WHERE CUST_CODE  = '%s'" % (
         cust_code)
     results = conn.OracleConn.query(sql)
@@ -90,8 +91,8 @@ def get_po_template(cust_code):
         result['show_filelist_flag'] = False
         result['load_progress'] = 0
 
-        jsonData.append(result)
-    return jsonData
+        json_data.append(result)
+    return json_data
 
 
 # Upload po file
@@ -100,6 +101,7 @@ def upload_po_file(f, po_header):
     if not f:
         print('文件不存在')
         return False
+
     upload_task[po_header['file_id']] = 0
     file_dir = os.path.join(os.getcwd(), 'uploads/po/' +
                             po_header['po_type']+'/'+po_header['cust_code'])
