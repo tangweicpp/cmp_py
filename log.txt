@@ -4015,3 +4015,162 @@
 2020-07-24 04:55:27,005 :: _log :: INFO ::  * Restarting with stat
 2020-07-24 04:55:32,730 :: _log :: WARNING ::  * Debugger is active!
 2020-07-24 04:55:32,732 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-24 05:10:29,971 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:11:21,669 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:12:41,809 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:13:21,355 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:15:35,564 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:16:14,797 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:17:14,544 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:22:30,406 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:22:42,474 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:25:34,823 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:33:30,932 :: query :: ERROR :: Error: unable to fetch data
+2020-07-24 05:40:45,459 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-24 05:40:45,471 :: _log :: INFO ::  * Restarting with stat
+2020-07-24 05:40:46,378 :: _log :: WARNING ::  * Debugger is active!
+2020-07-24 05:40:46,386 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-24 05:41:37,187 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:41:37] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-24 05:41:40,695 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:41:40] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-24 05:41:42,906 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:41:42] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:42:30,022 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:42:30] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:42:34,030 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:42:34] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:46:48,279 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-24 05:46:48,473 :: _log :: INFO ::  * Restarting with stat
+2020-07-24 05:46:51,410 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-24 05:46:51,412 :: _log :: INFO ::  * Restarting with stat
+2020-07-24 05:46:52,180 :: _log :: WARNING ::  * Debugger is active!
+2020-07-24 05:46:52,184 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-24 05:47:05,257 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:47:05] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:47:09,879 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:47:09] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:48:30,341 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-24 05:48:30,439 :: _log :: INFO ::  * Restarting with stat
+2020-07-24 05:48:31,203 :: _log :: WARNING ::  * Debugger is active!
+2020-07-24 05:48:31,205 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-24 05:48:36,043 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-24 05:48:36,044 :: _log :: INFO ::  * Restarting with stat
+2020-07-24 05:48:36,796 :: _log :: WARNING ::  * Debugger is active!
+2020-07-24 05:48:36,796 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-24 05:49:56,501 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:49:56] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:49:59,945 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:49:59] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-24 05:50:17,200 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:17] "[37mOPTIONS /upload_po_file HTTP/1.1[0m" 200 -
+2020-07-24 05:50:17,649 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:17] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:17,949 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:17] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:18,248 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:18] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:18,547 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:18] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:18,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:18] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:19,150 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:19] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:19,447 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:19] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:19,747 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:19] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:20,047 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:20] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:20,348 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:20] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:20,649 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:20] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:20,947 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:20] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:21,249 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:21] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:21,546 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:21] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:21,846 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:21] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:22,146 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:22] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:22,449 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:22] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:22,748 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:22] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:23,050 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:23] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:23,346 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:23] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:23,647 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:23] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:23,947 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:23] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:24,248 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:24] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:24,548 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:24] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:24,846 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:24] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:25,149 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:25] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:25,449 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:25] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:25,747 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:25] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:26,047 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:26] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:26,347 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:26] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:26,650 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:26] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:26,950 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:26] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:27,247 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:27] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:27,547 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:27] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:27,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:27] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:28,148 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:28] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:28,449 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:28] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:28,748 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:28] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:29,047 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:29] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:29,346 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:29] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:29,650 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:29] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:29,948 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:29] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:30,248 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:30] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:30,548 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:30] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:30,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:30] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:31,147 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:31] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:31,447 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:31] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:31,749 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:31] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:32,047 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:32] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:32,346 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:32] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:32,648 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:32] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:32,946 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:32] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:33,247 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:33] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:33,548 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:33] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:33,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:33] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:34,147 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:34] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:34,449 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:34] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:34,748 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:34] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:35,049 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:35] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:35,349 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:35] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:35,647 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:35] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:35,946 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:35] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:36,246 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:36] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:36,548 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:36] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:36,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:36] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:37,148 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:37] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:37,449 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:37] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:37,746 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:37] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:38,047 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:38] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:38,351 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:38] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:38,649 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:38] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:38,948 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:38] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:39,249 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:39] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:39,549 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:39] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:39,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:39] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:40,148 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:40] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:40,448 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:40] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:40,751 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:40] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:41,048 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:41] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:41,347 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:41] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:41,649 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:41] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:41,948 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:41] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:42,257 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:42] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:42,549 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:42] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:42,850 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:42] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:43,151 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:43] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:43,447 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:43] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:43,753 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:43] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:44,049 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:44] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:44,347 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:44] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:44,648 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:44] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:44,947 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:44] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:45,247 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:45] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:45,547 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:45] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:45,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:45] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:46,147 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:46] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:46,448 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:46] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:46,748 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:46] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:47,048 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:47] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:47,346 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:47] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:47,648 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:47] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:47,948 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:47] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:48,247 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:48] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:48,547 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:48] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:48,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:48] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:49,148 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:49] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:49,448 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:49] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:49,749 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:49] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:50,048 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:50] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:50,346 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:50] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:50,647 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:50] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:50,947 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:50] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:51,249 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:51] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:51,549 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:51] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:51,847 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:51] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:52,148 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:52] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:52,448 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:52] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:52,749 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:52] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:53,048 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:53] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-24 05:50:53,166 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 05:50:53] "[37mPOST /upload_po_file HTTP/1.1[0m" 200 -
