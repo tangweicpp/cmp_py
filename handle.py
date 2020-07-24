@@ -352,21 +352,6 @@ def parse_xlsx_file(file_name, po_header, po_dict):
 
         po_data.append(po_row_data)
 
-        # po_row_data = {}
-        # po_row_data['po_id'] = str(
-        #     row[column_index_from_string(file_key['po_id']['position']['col_char'])-1]).strip()
-        # po_row_data['fab_device'] = str(
-        #     row[column_index_from_string(file_key['fab_device']['position']['col_char'])-1]).strip()
-        # po_row_data['customer_device'] = str(
-        #     row[column_index_from_string(file_key['customer_device']['position']['col_char'])-1]).strip()
-        # po_row_data['lot_id'] = str(
-        #     row[column_index_from_string(file_key['lot_id']['position']['col_char'])-1]).strip()
-        # po_row_data['wafer_id'] = str(
-        #     row[column_index_from_string(file_key['wafer_id']['position']['col_char'])-1]).strip()
-        # po_row_data['wafer_qty'] = str(
-        #     row[column_index_from_string(file_key['wafer_qty']['position']['col_char'])-1]).strip()
-        # po_data.append(po_row_data)
-
     print(po_data)
     if not check_po_data(po_header, po_dict, po_data):
         return False
