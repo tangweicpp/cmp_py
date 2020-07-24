@@ -31,10 +31,13 @@ def xstr(s):
 
 def get_progress(user_key):
     global upload_task
-    return upload_task[user_key]
-
+    if upload_task[user_key]:
+        return upload_task[user_key]
+    return 0
 
 # Check username and password
+
+
 def check_account(username, password):
     if not (username and password):
         print('用户名或密码为空')
@@ -68,7 +71,7 @@ def get_cust_code_list():
 def get_po_template(cust_code):
     if not cust_code:
         print('客户代码不可为空')
-        return False
+        return []
 
     jsonData = []
     sql = "SELECT CUST_CODE,TEMPLATE_FILE ,TEMPLATE_PIC ,KEY_LIST ,FILE_LEVEL,FILE_URL,ACCEPT,TEMPLATE_ID FROM CMP_CUST_PO_TEMPLATE WHERE CUST_CODE  = '%s'" % (
@@ -121,6 +124,7 @@ def upload_po_file(f, po_header):
     # Send mail
     send_mail(ret, po_header, file_path)
 
+    upload_task[po_header['file_id']] = 100
     return ret
 
 
@@ -385,6 +389,8 @@ def save_po_data(po_header, po_dic, po_data):
             insert_po_data(wafer_id_list[i], po_header, item)
             upload_task[po_header['file_id']
                         ] = upload_task[po_header['file_id']] + 100 / float(num)
+            if upload_task[po_header['file_id']] >= 100:
+                upload_task[po_header['file_id']] = 99
 
 
 def insert_po_data(wafer_id, po_header, po_data):

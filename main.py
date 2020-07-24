@@ -47,13 +47,11 @@ def r_get_po_template():
     if request.method == 'POST':
         cust_code = request.values.get('custCode')
         json_data = h.get_po_template(cust_code)
-        if json_data:
-            return make_response(jsonify(json_data), 200)
-        return "error", 201
+        return make_response(jsonify(json_data), 200)
+
+
 
 # Upload po file
-
-
 @app.route('/upload_po_file', methods=['GET', 'POST'])
 def r_upload_po_file():
     if request.method == 'POST':
@@ -69,8 +67,8 @@ def r_upload_po_file():
         po_header['need_mail_tip'] = request.values.get('needMailTip')
         po_header['mail_tip'] = request.values.get('mailTip')
         po_header['file_id'] = request.values.get('fileID')
+        po_header['err_desc'] = ''
 
-        print("用户名为：", po_header['user_name'])
         json_data = h.upload_po_file(f, po_header)
 
         return make_response(jsonify(json_data), 200)
