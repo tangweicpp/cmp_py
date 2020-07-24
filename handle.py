@@ -22,13 +22,12 @@ upload_task = {}
 os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 
 
-# None转空字符串
+# None to ''
 def xstr(s):
     return '' if s is None else str(s).strip()
 
+
 # Upload progress
-
-
 def get_progress(user_key):
     global upload_task
 
@@ -36,9 +35,8 @@ def get_progress(user_key):
         return upload_task[user_key]
     return 0
 
+
 # Check username and password
-
-
 def check_account(username, password):
     if not (username and password):
         print('用户名或密码为空')
@@ -430,6 +428,7 @@ def save_po_data(po_header, po_dict, po_data):
     return True
 
 
+# Insert to DB
 def insert_po_data(wafer_id, po_header, po_data):
     if wafer_id.isdigit() and (len(wafer_id) == 1):
         wafer_id = ('00' + wafer_id)[-2:]

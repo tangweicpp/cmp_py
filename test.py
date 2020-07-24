@@ -1,26 +1,15 @@
-import connect_db as conn
+from handle import delete_po_data
 
+# ```
+# 13105
+# 13106
+# 13107
+# 13108
+# 13109
+# ```
 
-def test():
-    username = '07885'
-    password = '.7885'
-    sql = "select * from mappingdatatest where lotid = 'D1908150CED' "
-    print(sql)
+del_list = ['13732', '13707', '13662', '13768']
 
-    res = conn.OracleConn.query(sql)
-    if not res:
-        print('查询不到数据')
-
-    for row in res:
-        a = row[0]
-        b = row[1]
-        c = row[6]
-        print("a:", type(a), a)
-        print("b:", type(str(b)), str(b))
-        print("c:", type(c), c)
-
-    print(res)
-
-
-if __name__ == "__main__":
-    test()
+for del_id in del_list:
+    delete_po_data('2', del_id)
+    print(f'{del_id}删除成功')
