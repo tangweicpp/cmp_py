@@ -336,7 +336,6 @@ def parse_xlsx_file(file_name, po_header, po_dict):
     df = pd.DataFrame(pd.read_excel(
         file_name, sheet_name=file_index, header=file_header, keep_default_na=False))
     for index, row in df.iterrows():
-        print(index, row)
         po_row_data = {}
         col_name = file_key['po_id']['position']['col_name']
         po_row_data['po_id'] = row[col_name]
@@ -409,6 +408,16 @@ def get_wafer_list(wafer_str):
 
 # Check po data
 def check_po_data(po_header, po_dict, po_data):
+    for item in po_data:
+        wafer_id_list = get_wafer_list(item['wafer_id'])
+        if len(wafer_id_list) == 0:
+            continue
+
+        wafer_qty = item['wafer_qty']
+        if len(wafer_id_list) != int(wafer_qty):
+            print('wafer qty和wafer list明细不一致')
+            po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
+            return False
     return True
 
 
@@ -425,12 +434,6 @@ def save_po_data(po_header, po_dict, po_data):
         wafer_id_list = get_wafer_list(item['wafer_id'])
         if len(wafer_id_list) == 0:
             continue
-
-        wafer_qty = item['wafer_qty']
-        if len(wafer_id_list) != int(wafer_qty):
-            print('wafer qty和wafer list明细不一致')
-            po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
-            return False
 
         for i in range(len(wafer_id_list)):
             insert_po_data(wafer_id_list[i], po_header, item)
