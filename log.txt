@@ -4803,3 +4803,51 @@
 2020-07-25 13:11:03,412 :: _log :: INFO ::  * Debugger PIN: 278-044-988
 2020-07-25 13:12:15,174 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/send_email.py', reloading
 2020-07-25 13:12:15,302 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 13:14:55,882 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-25 13:14:55,884 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 13:14:57,731 :: _log :: WARNING ::  * Debugger is active!
+2020-07-25 13:14:57,768 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-25 13:15:05,804 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:05] "[37mOPTIONS /upload_po_file HTTP/1.1[0m" 200 -
+2020-07-25 13:15:06,289 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:06] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:06,556 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:06] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:06,859 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:06] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:07,159 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:07] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:07,448 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:07] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:07,747 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:07] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:08,048 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:08] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:08,348 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:08] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:08,648 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:08] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:08,947 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:08] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:09,246 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:09] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:09,547 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:09] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:09,848 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:09] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:10,147 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:10] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:10,449 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:10] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:10,750 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:10] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:11,047 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:11] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:11,347 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:11] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:11,648 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:11] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:11,948 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:11] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:12,247 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:12] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:12,548 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:12] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:12,849 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:12] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:13,148 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:13] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:13,449 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:13] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:13,747 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:13] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:14,047 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:14] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:14,348 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:14] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:14,649 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:14] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:14,948 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:14] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:15,247 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:15] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:15,547 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:15] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:15,847 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:15] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:16,145 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:16] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:16,463 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:16] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:16,755 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:16] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
+2020-07-25 13:15:16,924 :: _log :: INFO :: 10.160.1.1 - - [25/Jul/2020 13:15:16] "[35m[1mPOST /upload_po_file HTTP/1.1[0m" 500 -
+2020-07-25 13:15:47,575 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/send_email.py', reloading
+2020-07-25 13:15:47,888 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 13:15:50,191 :: _log :: INFO ::  * Running on http://10.160.31.115:5000/ (Press CTRL+C to quit)
+2020-07-25 13:15:50,195 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 13:15:51,093 :: _log :: WARNING ::  * Debugger is active!
+2020-07-25 13:15:51,098 :: _log :: INFO ::  * Debugger PIN: 278-044-988

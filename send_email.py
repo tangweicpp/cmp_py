@@ -40,7 +40,7 @@ def send_email(subject, body, file_path, to_reciver, cc_reciver):
     #     message.attach(xmlApart)
 
     for i in range(len(file_path)):
-        xmlApart = MIMEApplication(open(file_path, 'rb').read())
+        xmlApart = MIMEApplication(open(file_path[i], 'rb').read())
         file_name = file_path[i].split('/')[-1]
         xmlApart.add_header('Content-Disposition',
                             'attachment', filename=file_name)
