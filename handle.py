@@ -16,6 +16,7 @@ import numpy as np
 import json
 import re
 from openpyxl.utils import get_column_letter, column_index_from_string
+from openpyxl import load_workbook
 
 
 upload_task = {}
@@ -119,8 +120,10 @@ def upload_po_file(f, po_header):
         return False
 
     ret = get_upload_data(po_header['upload_id'])
-
-    send_mail(ret, po_header, file_path)
+    mail_attachment = []
+    mail_attachment.append(file_path)
+    mail_attachment.append(os.path.join(os.getcwd(), '已上传订单.xlsx'))
+    send_mail(ret, po_header, mail_attachment)
 
     upload_task[po_header['file_id']] = 100
 
@@ -225,10 +228,6 @@ def get_upload_data(upload_id):
 
     dict_data['total_data'] = json_data_total
 
-    df = pd.DataFrame(json_data_total)
-    df.to_excel('test.xlsx', sheet_name='汇总')
-    print('Done!!')
-
     # Detail data
     sql = f'''
     select row_number() over(ORDER BY  bb.lotid,bb.substrateid) as 序号,case bb.substratetype when 'A' then '保税' when 'B' then '非保税' else '未知' end as 是否保税, bb.customershortname as 客户代码,
@@ -265,9 +264,9 @@ def get_upload_data(upload_id):
         result['lot_id'] = xstr(row[8])
         result['wafer_no'] = xstr(row[9])
         result['wafer_id'] = xstr(row[10])
-        result['good_dies'] = xstr(row[11])
-        result['ng_dies'] = xstr(row[12])
-        result['gross_dies'] = xstr(row[13])
+        result['good_dies'] = row[11]
+        result['ng_dies'] = row[12]
+        result['gross_dies'] = row[13]
         result['mark_code'] = xstr(row[14])
         result['second_code'] = xstr(row[15])
         result['upload_by'] = xstr(row[16])
@@ -278,11 +277,30 @@ def get_upload_data(upload_id):
         json_data_detail.append(result)
 
     dict_data['detail_data'] = json_data_detail
-    df = pd.DataFrame(json_data_detail)
-    df.to_excel('test.xlsx', sheet_name='明细')
-    print('Done!!')
 
+    set_xl(json_data_detail)
     return dict_data
+
+
+def get_cell_val(row, col, data):
+    list1 = ["id", "banded", "cust_code","fab_device","cust_device","npi_owner","ht_pn","po_id","lot_id","wafer_no","wafer_id","good_dies","ng_dies","gross_dies","mark_code","second_code","upload_by","upload_date"]
+    if col > len(list1) or (row-2) > len(data):
+        val = ""
+    else:
+        val = data[row-3][list1[col-1]]
+    return val
+
+
+# Set new xl
+def set_xl(detail_data):
+    wb = load_workbook('export_xl_template/template.xlsx')
+    ws = wb.get_sheet_by_name(wb.sheetnames[0])
+
+    for row in range(3, 30):
+        for col in range(1, 54):
+            ws.cell(column=col, row=row, value=get_cell_val(row, col, detail_data))
+
+    wb.save("已上传订单.xlsx")
 
 
 # Parse po file
