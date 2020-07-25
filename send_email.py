@@ -39,15 +39,15 @@ def send_email(subject, body, file_path, to_reciver, cc_reciver):
     #                         'attachment', filename=file_name)
     #     message.attach(xmlApart)
 
-    for i in range(len(file_path):
-        xmlApart=MIMEApplication(open(file_path, 'rb').read())
-        file_name=file_path[i].split('/')[-1]
+    for i in range(len(file_path)):
+        xmlApart = MIMEApplication(open(file_path, 'rb').read())
+        file_name = file_path[i].split('/')[-1]
         xmlApart.add_header('Content-Disposition',
                             'attachment', filename=file_name)
         message.attach(xmlApart)
 
     try:
-        smtpObj=smtplib.SMTP('ksmail.ht-tech.com:587')
+        smtpObj = smtplib.SMTP('ksmail.ht-tech.com:587')
         smtpObj.login('sqladmin@ht-tech.com', 'ksitadmin')
         smtpObj.sendmail(sender, reciver, message.as_string())
         print("Success to send email!!!")
