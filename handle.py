@@ -127,8 +127,6 @@ def upload_po_file(f, po_header):
     return ret
 
 
-
-
 # Sent mail
 def send_mail(ret_data, po_header, mail_attachment):
     mail_keyid = po_header['upload_id']
@@ -227,10 +225,9 @@ def get_upload_data(upload_id):
 
     dict_data['total_data'] = json_data_total
 
-    df=pd.DataFrame(json_data_total)
-    df.to_excel('test.xlsx',sheet_name='汇总')
+    df = pd.DataFrame(json_data_total)
+    df.to_excel('test.xlsx', sheet_name='汇总')
     print('Done!!')
-
 
     # Detail data
     sql = f'''
@@ -281,8 +278,8 @@ def get_upload_data(upload_id):
         json_data_detail.append(result)
 
     dict_data['detail_data'] = json_data_detail
-    df=pd.DataFrame(json_data_detail)
-    df.to_excel('test.xlsx',sheet_name='明细')
+    df = pd.DataFrame(json_data_detail)
+    df.to_excel('test.xlsx', sheet_name='明细')
     print('Done!!')
 
     return dict_data

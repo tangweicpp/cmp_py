@@ -4464,3 +4464,11 @@
 2020-07-24 07:01:12,698 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 07:01:12] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
 2020-07-24 07:01:13,700 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 07:01:13] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
 2020-07-24 07:01:14,100 :: _log :: INFO :: 10.160.31.173 - - [24/Jul/2020 07:01:14] "[37mPOST /upload_po_file HTTP/1.1[0m" 200 -
+2020-07-25 11:32:44,296 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-25 11:32:45,506 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 11:32:48,902 :: _log :: WARNING ::  * Debugger is active!
+2020-07-25 11:32:48,931 :: _log :: INFO ::  * Debugger PIN: 278-044-988
+2020-07-25 11:32:54,077 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle.py', reloading
+2020-07-25 11:32:54,370 :: _log :: INFO ::  * Restarting with stat
+2020-07-25 11:32:56,150 :: _log :: WARNING ::  * Debugger is active!
+2020-07-25 11:32:56,151 :: _log :: INFO ::  * Debugger PIN: 278-044-988
