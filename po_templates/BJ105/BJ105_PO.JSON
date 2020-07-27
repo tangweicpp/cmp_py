@@ -102,8 +102,6 @@
             "remark": false,
             "example": "3",
             "desc": "WAFER片数"
-        },
-        "gross_dies": null,
-        "good_dies": null
+        }
     }
 }

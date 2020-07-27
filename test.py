@@ -8,7 +8,12 @@ from handle import delete_po_data
 # 13109
 # ```
 
-del_list = ['13732', '13707', '13662', '13768']
+# test_dict = {"abc": 123, "bcd": 234}
+# for item in test_dict:
+#     print(item)
+
+
+del_list = ['13813', '13777', '13814', '13827','13823','13815','13820']
 
 for del_id in del_list:
     delete_po_data('2', del_id)

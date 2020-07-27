@@ -376,18 +376,9 @@ def parse_xlsx_file(file_name, po_header, po_dict):
         file_name, sheet_name=file_index, header=file_header, keep_default_na=False))
     for index, row in df.iterrows():
         po_row_data = {}
-        col_name = file_key['po_id']['position']['col_name']
-        po_row_data['po_id'] = row[col_name]
-        col_name = file_key['fab_device']['position']['col_name']
-        po_row_data['fab_device'] = row[col_name]
-        col_name = file_key['customer_device']['position']['col_name']
-        po_row_data['customer_device'] = row[col_name]
-        col_name = file_key['lot_id']['position']['col_name']
-        po_row_data['lot_id'] = row[col_name]
-        col_name = file_key['wafer_id']['position']['col_name']
-        po_row_data['wafer_id'] = row[col_name]
-        col_name = file_key['wafer_qty']['position']['col_name']
-        po_row_data['wafer_qty'] = row[col_name]
+        for key in file_key:
+            col_name = file_key[key]['position']['col_name']
+            po_row_data[key] = row[col_name] if col_name else ''
 
         po_data.append(po_row_data)
 
@@ -432,16 +423,29 @@ def get_wafer_list(wafer_str):
 
 # Check po data
 def check_po_data(po_header, po_dict, po_data):
+
     for item in po_data:
+        # Check 0:necessary key
+        necessary_key_list = ['po_id', 'customer_device', 'lot_id', 'wafer_id']
+        for key in necessary_key_list:
+            if not key in item:
+                po_header['err_desc'] = '配置文件必要KEY不存在错误，无法解析上传文件，请联系IT处理'
+                return False
+
         wafer_id_list = get_wafer_list(item['wafer_id'])
         if len(wafer_id_list) == 0:
             continue
 
-        wafer_qty = item['wafer_qty']
-        if len(wafer_id_list) != int(wafer_qty):
-            print('wafer qty和wafer list明细不一致')
-            po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
-            return False
+        # Check 1:Wafer qty
+        if 'wafer_qty' in item:
+            wafer_qty = item['wafer_qty']
+            if len(wafer_id_list) != int(wafer_qty):
+                print('wafer qty和wafer list明细不一致')
+                po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
+                return False
+
+        # Check 2:
+
     return True
 
 
@@ -471,6 +475,7 @@ def save_po_data(po_header, po_dict, po_data):
 
 # Insert to DB
 def insert_po_data(wafer_id, po_header, po_data):
+    # Get data
     if wafer_id.isdigit() and (len(wafer_id) == 1):
         wafer_id = ('00' + wafer_id)[-2:]
     sql = "select CustomerBCtbl_SEQ.nextval ID from dual"
@@ -478,7 +483,6 @@ def insert_po_data(wafer_id, po_header, po_data):
     upload_id = po_header['upload_id']
     bonded = 'A' if po_header['bonded_type'] == '保税' else 'B'
     create_by = po_header['user_name']
-    mark_id = 'ABC' + wafer_id
     lot_id = po_data['lot_id']
     cust_code = po_header['cust_code']
     po_id = po_data['po_id']
@@ -490,6 +494,15 @@ def insert_po_data(wafer_id, po_header, po_data):
     failbin_count = '0'
     product_id = ret['product_id'] if ret else ''
 
+    ship_comment = po_data['add_1']
+    probe_ship_part_type = po_data['add_2']
+    reticle_level_71 = po_data['add_3']
+    reticle_level_72 = po_data['add_4']
+    reticle_level_73 = po_data['add_5']
+    assembly_facility = po_data['add_6']
+    batch_comment_assy = po_data['add_7']
+    mark_code = po_data['mark_code']
+
     # Delete old wafer data
     delete_po_data('1', lot_id+wafer_id)
     # Oracle insert
@@ -497,7 +510,7 @@ def insert_po_data(wafer_id, po_header, po_data):
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
               values( mappingData_SEQ.Nextval,'%s','%s','%s','%s',
                      '%s','%s','%s','%s','%s','Y','%s',sysdate,'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_id, mark_id, lot_id, wafer_id, passbin_count, failbin_count, cust_code, create_by, max_id)
+          ''' % (lot_id+wafer_id, bonded, mark_code, 'std_new', lot_id, wafer_id, passbin_count, failbin_count, cust_code, create_by, max_id)
 
     conn.OracleConn.exec(sql)
 
@@ -506,7 +519,8 @@ def insert_po_data(wafer_id, po_header, po_data):
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
-            'Y','{create_by}',sysdate,'','','','','','','','','','','{lot_id}','HTKS','')
+            'Y','{create_by}',sysdate,'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
+            '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
           '''
 
     conn.OracleConn.exec(sql)
@@ -515,7 +529,7 @@ def insert_po_data(wafer_id, po_header, po_data):
     sql = ''' insert into [ERPBASE].[dbo].[tblmappingData](substrateid,substratetype,productid,lotid,Wafer_ID,passbincount,
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
               values('%s','%s','%s','%s','%s','%s','0','%s','Y','%s',getdate(),'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_id, lot_id, wafer_id, passbin_count, cust_code, create_by, max_id)
+          ''' % (lot_id+wafer_id, bonded, mark_code, lot_id, wafer_id, passbin_count, cust_code, create_by, max_id)
 
     conn.MssConn.exec(sql)
 
@@ -524,7 +538,8 @@ def insert_po_data(wafer_id, po_header, po_data):
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
-            'Y','{create_by}',getdate(),'','','','','','','','','','','{lot_id}','HTKS','')
+            'Y','{create_by}',getdate(),'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
+            '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
           '''
     conn.MssConn.exec(sql)
 
