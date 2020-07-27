@@ -378,7 +378,11 @@ def parse_xlsx_file(file_name, po_header, po_dict):
         po_row_data = {}
         for key in file_key:
             col_name = file_key[key]['position']['col_name']
-            po_row_data[key] = row[col_name] if col_name else ''
+            if col_name != "":
+                if col_name in row:
+                    po_row_data[key] = row[col_name]
+            else:
+                po_row_data[key] = ''
 
         po_data.append(po_row_data)
 
@@ -429,7 +433,7 @@ def check_po_data(po_header, po_dict, po_data):
         necessary_key_list = ['po_id', 'customer_device', 'lot_id', 'wafer_id']
         for key in necessary_key_list:
             if not key in item:
-                po_header['err_desc'] = '配置文件必要KEY不存在错误，无法解析上传文件，请联系IT处理'
+                po_header['err_desc'] = '配置文件必要KEY不存在错误，或选错上传文件，无法解析上传文件，请联系IT处理'
                 return False
 
         wafer_id_list = get_wafer_list(item['wafer_id'])
@@ -444,7 +448,12 @@ def check_po_data(po_header, po_dict, po_data):
                 po_header['err_desc'] = 'wafer qty和wafer list明细不一致'
                 return False
 
-        # Check 2:
+        # Check 2:customer code => customer device
+        sql = f"SELECT count(1) FROM TBLTSVNPIPRODUCT t  WHERE t.CUSTOMERSHORTNAME  = '{po_header['cust_code']}' AND t.CUSTOMERPTNO1  = '{item['customer_device']}'  "
+        if conn.OracleConn.query(sql)[0][0] == 0:
+            print('客户代码和客户机种无法对应，或者NPI对照表未维护对应关系')
+            po_header['err_desc'] = '客户代码和客户机种无法对应，或者NPI对照表未维护对应关系'
+            return False
 
     return True
 
