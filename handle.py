@@ -17,6 +17,8 @@ import json
 import re
 from openpyxl.utils import get_column_letter, column_index_from_string
 from openpyxl import load_workbook
+from xlrd import open_workbook
+from itertools import groupby
 
 
 upload_task = {}
@@ -331,7 +333,7 @@ def parse_po_file(file_name, po_header):
         po_header['err_desc'] = '您上传的文件和模板设定的文件类型不一致'
         return False
 
-    if file_type == 'xlsx':
+    if file_type == 'xlsx' or file_type == 'xls':
         if not parse_xlsx_file(file_name, po_header, po_dict):
             return False
     else:
@@ -381,6 +383,9 @@ def parse_xlsx_file(file_name, po_header, po_dict):
             if col_name != "":
                 if col_name in row:
                     po_row_data[key] = row[col_name]
+            elif key in po_dict['other_key']:
+                po_row_data[key] = get_cell_val_by_openpyxl(
+                    file_name, po_dict['other_key'][key]['position'])
             else:
                 po_row_data[key] = ''
 
@@ -393,6 +398,31 @@ def parse_xlsx_file(file_name, po_header, po_dict):
     if not save_po_data(po_header, po_dict, po_data):
         return False
     return True
+
+
+# Get cell value by openpyxl/xlrd
+def get_cell_val_by_openpyxl(file_name, key_postion):
+    if file_name.endswith('.xls'):
+        dict1 = thans_col_row_from_string(key_postion)
+        cell_val = open_workbook(file_name).sheets()[0].cell_value(
+            dict1['row'], dict1['col'])
+
+    elif file_name.endswith('.xlsx'):
+        wb = load_workbook(file_name)
+        ws = wb.get_sheet_by_name(wb.sheetnames[0])
+        cell_val = ws[key_postion].value
+
+    print(cell_val)
+    return cell_val
+
+
+def thans_col_row_from_string(s):
+    dict = {}
+    ss = [''.join(list(g)) for k, g in groupby(s, key=lambda x: x.isdigit())]
+
+    dict['col'] = column_index_from_string(ss[0]) - 1
+    dict['row'] = int(ss[1]) - 1
+    return dict
 
 
 # Get list
@@ -496,10 +526,10 @@ def insert_po_data(wafer_id, po_header, po_data):
     cust_code = po_header['cust_code']
     po_id = po_data['po_id']
     cust_device = po_data['customer_device']
-    fab_device = po_data['fab_device']
-    ret = get_cust_pn_info(cust_device, fab_device)
+    fab_device = po_data['fab_device'] if po_data['fab_device'] else cust_device
+    ret = get_cust_pn_info(cust_code, cust_device, fab_device)
     ht_pn = ret['ht_pn'] if ret else ''
-    passbin_count = ret['gross_dies'] if ret else ''
+    passbin_count = ret['gross_dies'] if ret else '0'
     failbin_count = '0'
     product_id = ret['product_id'] if ret else ''
 
@@ -553,9 +583,11 @@ def insert_po_data(wafer_id, po_header, po_data):
     conn.MssConn.exec(sql)
 
 
-def get_cust_pn_info(cust_device, fab_device):
-    sql = "SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2 FROM TBLTSVNPIPRODUCT t  WHERE t.CUSTOMERPTNO1  = '%s' AND CUSTOMERPTNO2  = '%s'" % (
-        cust_device, fab_device)
+def get_cust_pn_info(cust_code, cust_device, fab_device):
+    if fab_device == '':
+        fab_device = cust_device
+
+    sql = f"SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2 FROM TBLTSVNPIPRODUCT t  WHERE  t.CUSTOMERSHORTNAME = '{cust_code}' and t.CUSTOMERPTNO1  = '{cust_device}' AND CUSTOMERPTNO2  = '{fab_device}' "
     results = conn.OracleConn.query(sql)
 
     if not results:
