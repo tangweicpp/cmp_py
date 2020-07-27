@@ -153,8 +153,8 @@ def send_mail(ret_data, po_header, mail_attachment):
 def get_mail_body(createBy, uploadid, addContent, json_data):
     # Get total data
     content = f'''
-          内勤人员：{createBy} 上传WO
-          <div style="color:red">{addContent}</div>
+          <h2>内勤人员：{createBy} 上传WO</h2>
+          <div style="color:red"><pre>{addContent}</pre></div>
           <h2>以下为上传WO的汇总信息</h2>
           <table border="1" cellspacing="0" cellpadding="5" style="border:rgb(175, 175, 175) solid thin">
               <tr style="background-color: rgb(175, 175, 175);">
@@ -201,11 +201,11 @@ def get_upload_data(upload_id):
     sql = f'''
     select row_number() over(ORDER BY bb.lotid) as 序号,case bb.substratetype when 'A' THEN '保税' when 'B' THEN '非保税' else '未知' end as 是否保税,
     bb.customershortname as 客户代码,aa.po_num,aa.mpn_desc as 客户机种名,aa.Fab_conv_id as 客户Fab机种,aa.mtrl_num as 厂内机种,cc.MARKETLASTUPDATE_BY AS 晶圆料号,
-    bb.lotid AS LOTID,count(bb.wafer_id) AS 片,sum(bb.passbincount + bb.failbincount) Dies,bb.qtech_created_by, to_char(bb.qtech_created_date,'yyyy-MM-dd')
+    bb.lotid AS LOTID,count(bb.wafer_id) AS 片,sum(bb.passbincount + bb.failbincount) Dies,bb.qtech_created_by, to_char(bb.qtech_created_date,'yyyy-MM-dd'),cc.residual
     from customeroitbl_test aa inner join mappingdatatest bb on to_char(aa.id) = bb.filename INNER JOIN TBLTSVNPIPRODUCT cc ON aa.CUSTOMERSHORTNAME  = cc.CUSTOMERSHORTNAME
     AND aa.MPN_DESC  = cc.CUSTOMERPTNO1 AND aa.FAB_CONV_ID  = cc.CUSTOMERPTNO2  where aa.wafer_visual_inspect = '{upload_id}'
     group by bb.customershortname,aa.Fab_conv_id,aa.mpn_desc,bb.lotid,aa.mtrl_num,bb.passbincount,bb.failbincount,aa.po_num,bb.qtech_created_by,
-    to_char(bb.qtech_created_date,'yyyy-MM-dd'),bb.substratetype,cc.MARKETLASTUPDATE_BY
+    to_char(bb.qtech_created_date,'yyyy-MM-dd'),bb.substratetype,cc.MARKETLASTUPDATE_BY,cc.residual
     '''
     results = conn.OracleConn.query(sql)
     for row in results:
@@ -219,10 +219,11 @@ def get_upload_data(upload_id):
         result['ht_pn'] = xstr(row[6])
         result['wafer_pn'] = xstr(row[7])
         result['lot_id'] = xstr(row[8])
-        result['wafer_qty'] = xstr(row[9])
-        result['die_qty'] = xstr(row[10])
+        result['wafer_qty'] = row[9]
+        result['die_qty'] = row[10]
         result['upload_by'] = xstr(row[11])
         result['upload_date'] = xstr(row[12])
+        result['npi_owner'] = xstr(row[13])
 
         json_data_total.append(result)
 
@@ -278,27 +279,42 @@ def get_upload_data(upload_id):
 
     dict_data['detail_data'] = json_data_detail
 
-    set_xl(json_data_detail)
+    set_xl(json_data_total, json_data_detail)
     return dict_data
 
 
-def get_cell_val(row, col, data):
-    list1 = ["id", "banded", "cust_code","fab_device","cust_device","npi_owner","ht_pn","po_id","lot_id","wafer_no","wafer_id","good_dies","ng_dies","gross_dies","mark_code","second_code","upload_by","upload_date"]
-    if col > len(list1) or (row-2) > len(data):
+# Get cell value
+def get_cell_val(row, col, data, header):
+    if col > len(header) or (row-2) > len(data):
         val = ""
     else:
-        val = data[row-3][list1[col-1]]
+        val = data[row-3][header[col-1]]
     return val
 
 
 # Set new xl
-def set_xl(detail_data):
+def set_xl(total_data, detail_data):
     wb = load_workbook('export_xl_template/template.xlsx')
-    ws = wb.get_sheet_by_name(wb.sheetnames[0])
+    # Total
+    header_list = ["id", "po_id", "cust_code",  "cust_device", "fab_device",
+                   "ht_pn", "lot_id", "wafer_qty", "die_qty", "banded", "upload_by", "upload_date", "npi_owner"]
 
-    for row in range(3, 30):
-        for col in range(1, 54):
-            ws.cell(column=col, row=row, value=get_cell_val(row, col, detail_data))
+    ws = wb.get_sheet_by_name(wb.sheetnames[0])
+    for row in range(3, len(total_data)+3):
+        for col in range(1, len(header_list)):
+            ws.cell(column=col, row=row, value=get_cell_val(
+                row, col, total_data, header_list))
+
+    # Detail
+    header_list = ["id", "po_id", "cust_code",  "cust_device", "fab_device", "ht_pn", "lot_id",
+                   "wafer_no", "wafer_id", "gross_dies", "good_dies", "ng_dies", "mark_code"]
+
+    ws = wb.get_sheet_by_name(wb.sheetnames[1])
+
+    for row in range(3, len(detail_data)+3):
+        for col in range(1, 30):
+            ws.cell(column=col, row=row, value=get_cell_val(
+                row, col, detail_data, header_list))
 
     wb.save("已上传订单.xlsx")
 
