@@ -1,0 +1,107 @@
+{
+    "customer_code": "BJ105",
+    "file_name": "SCT2320F13P_20200709_Bump_Prod.xlsx",
+    "file_type": "xlsx",
+    "file_index": 0,
+    "file_header": 0,
+    "file_max_cols": 22,
+    "file_max_rows": 100,
+    "file_key": {
+        "po_id": {
+            "position": {
+                "col_num": 3,
+                "col_char": "C",
+                "col_name": "订单号"
+            },
+            "fix_len": null,
+            "max_len": 40,
+            "min_len": 8,
+            "type": "string",
+            "in_char": "_",
+            "complexed": false,
+            "remark": false,
+            "example": "SCT2320F13P_20200709_Bump_Prod",
+            "desc": "客户订单号"
+        },
+        "customer_device": {
+            "position": {
+                "col_num": 6,
+                "col_char": "F",
+                "col_name": "客户机种名"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "SCT2320F13P",
+            "desc": "客户机种名"
+        },
+        "fab_device": {
+            "position": {
+                "col_num": 5,
+                "col_char": "E",
+                "col_name": "FAB机种名"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "SCT2320F1",
+            "desc": "FAB机种名"
+        },
+        "lot_id": {
+            "position": {
+                "col_num": 7,
+                "col_char": "G",
+                "col_name": "lot号"
+            },
+            "fix_len": 7,
+            "max_len": 7,
+            "min_len": 7,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "0135400",
+            "desc": "lot号"
+        },
+        "wafer_id": {
+            "position": {
+                "col_num": 8,
+                "col_char": "H",
+                "col_name": "WAFER ID"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "string",
+            "in_char": "#",
+            "complexed": true,
+            "remark": false,
+            "example": "#1~25",
+            "desc": "WAFER ID"
+        },
+        "wafer_qty": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": "片数"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "3",
+            "desc": "WAFER片数"
+        }
+    }
+}

@@ -103,7 +103,133 @@
             "example": "1",
             "desc": "WAFER片数"
         },
-        "gross_dies": null,
-        "good_dies": null
+        "mark_code": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "3",
+            "desc": "打标码"
+        },
+        "add_1": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_O",
+            "desc": "SHIP_COMMENT"
+        },
+        "add_2": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_P",
+            "desc": "PROBE_SHIP_PART_TYPE"
+        },
+        "add_3": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_Q",
+            "desc": "RETICLE_LEVEL_71"
+        },
+        "add_4": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_R",
+            "desc": "RETICLE_LEVEL_72"
+        },
+        "add_5": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_S",
+            "desc": "RETICLE_LEVEL_73"
+        },
+        "add_6": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_T",
+            "desc": "ASSEMBLY_FACILITY"
+        },
+        "add_7": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_U",
+            "desc": "BATCH_COMMENT_ASSY"
+        }
     }
 }
