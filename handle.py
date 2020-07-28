@@ -329,7 +329,7 @@ def parse_po_file(file_name, po_header):
         return False
 
     file_type = po_dict['file_type']
-    if not file_name.endswith(file_type):
+    if not file_name.upper().endswith(file_type.upper()):
         po_header['err_desc'] = '您上传的文件和模板设定的文件类型不一致'
         return False
 
@@ -526,13 +526,16 @@ def insert_po_data(wafer_id, po_header, po_data):
     cust_code = po_header['cust_code']
     po_id = po_data['po_id']
     cust_device = po_data['customer_device']
-    fab_device = po_data['fab_device'] if po_data['fab_device'] else cust_device
+    fab_device = po_data['fab_device']
     ret = get_cust_pn_info(cust_code, cust_device, fab_device)
+    if not ret:
+        po_header['err_desc'] = '无法对应NPI对照表唯一厂内机种'
+
     ht_pn = ret['ht_pn'] if ret else ''
     passbin_count = ret['gross_dies'] if ret else '0'
     failbin_count = '0'
     product_id = ret['product_id'] if ret else ''
-
+    fab_device = ret['fab_device'] if ret else ''
     ship_comment = po_data['add_1']
     probe_ship_part_type = po_data['add_2']
     reticle_level_71 = po_data['add_3']
@@ -584,20 +587,31 @@ def insert_po_data(wafer_id, po_header, po_data):
 
 
 def get_cust_pn_info(cust_code, cust_device, fab_device):
-    if fab_device == '':
-        fab_device = cust_device
+    if fab_device != '':
+        sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+            WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
+            and CUSTOMERPTNO2 = '{fab_device}'
+            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  '''
+    else:
+        sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+            WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
+            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  '''
 
-    sql = f"SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2 FROM TBLTSVNPIPRODUCT t  WHERE  t.CUSTOMERSHORTNAME = '{cust_code}' and t.CUSTOMERPTNO1  = '{cust_device}' AND CUSTOMERPTNO2  = '{fab_device}' "
     results = conn.OracleConn.query(sql)
 
     if not results:
         print('无法获取NPI对照表对应机种信息')
         return False
 
+    if len(results) > 1:
+        print('无法获取唯一的NPI对照表对应机种信息')
+        return False
+
     ret = {}
     ret['ht_pn'] = results[0][0]
     ret['gross_dies'] = results[0][1]
     ret['product_id'] = results[0][2]
+    ret['fab_device'] = results[0][3]
     return ret
 
 
