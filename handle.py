@@ -139,8 +139,11 @@ def send_mail(ret_data, po_header, mail_attachment):
     mail_body = get_mail_body(
         po_header['user_name'], mail_keyid, po_header['mail_tip'], ret_data)
 
-    # sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
-    sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
+    if po_header['user_name'] == '07885':
+        sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    else:
+        sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
+    
     mail_recv = conn.OracleConn.query(sql)[0][0].split(',')
 
     sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
@@ -548,13 +551,13 @@ def insert_po_data(wafer_id, po_header, po_data):
     mark_code = po_data['mark_code']
 
     # Delete old wafer data
-    delete_po_data('1', lot_id+wafer_id)
+    delete_po_data('1', str(lot_id)+str(wafer_id))
     # Oracle insert
     sql = ''' insert into mappingDataTest(id,substrateid,substratetype,productid,micronlotid,lotid,Wafer_ID,passbincount,
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
               values( mappingData_SEQ.Nextval,'%s','%s','%s','%s',
                      '%s','%s','%s','%s','%s','Y','%s',sysdate,'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_code, 'std_new', lot_id, wafer_id, passbin_count, failbin_count, cust_code, create_by, max_id)
+          ''' % (str(lot_id)+str(wafer_id), bonded, mark_code, 'std_new', lot_id, wafer_id, passbin_count, failbin_count, cust_code, create_by, max_id)
 
     conn.OracleConn.exec(sql)
 
@@ -573,7 +576,7 @@ def insert_po_data(wafer_id, po_header, po_data):
     sql = ''' insert into [ERPBASE].[dbo].[tblmappingData](substrateid,substratetype,productid,lotid,Wafer_ID,passbincount,
               failbincount,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,filename)
               values('%s','%s','%s','%s','%s','%s','0','%s','Y','%s',getdate(),'%s')
-          ''' % (lot_id+wafer_id, bonded, mark_code, lot_id, wafer_id, passbin_count, cust_code, create_by, max_id)
+          ''' % (str(lot_id)+str(wafer_id), bonded, mark_code, lot_id, wafer_id, passbin_count, cust_code, create_by, max_id)
 
     conn.MssConn.exec(sql)
 
