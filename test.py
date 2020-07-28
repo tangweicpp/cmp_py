@@ -2,10 +2,9 @@ from handle import delete_po_data
 from openpyxl.utils import get_column_letter, column_index_from_string
 from openpyxl import load_workbook
 from itertools import groupby
+import connect_db as conn
 
 import xlrd
-
-
 
 
 # def thans_col_row_from_string(s):
@@ -36,11 +35,18 @@ import xlrd
 #     print(item)
 
 
-del_list = ['13884','13866']
+sql = '''
+SELECT DISTINCT t2.WAFER_VISUAL_INSPECT FROM MAPPINGDATATEST t1
+INNER JOIN CUSTOMEROITBL_TEST t2 ON to_char(t2.id) = t1.FILENAME  
+WHERE t1.MICRONLOTID = 'std_new' AND t1.LOTID LIKE 'TW%'
+'''
+results = conn.OracleConn.query(sql)
+if  results:
+    del_list = results
 
-for del_id in del_list:
-    delete_po_data('2', del_id)
-    print(f'{del_id}删除成功')
+    for del_id in del_list:
+        delete_po_data('2', del_id[0])
+        print(f'{del_id}删除成功')
 
 
 # Get cell value by openpyxl
