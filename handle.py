@@ -143,13 +143,13 @@ def send_mail(ret_data, po_header, mail_attachment):
         sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
     else:
         sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
-    
+
     mail_recv = conn.OracleConn.query(sql)[0][0].split(',')
 
     sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
     mail_recv_cc = conn.OracleConn.query(sql)[0][0].split(',')
 
-    mail_title = '测试新版WO上传'
+    mail_title = '已上传客户' + po_header['cust_code'] + '的订单, 明细请查看附件'
 
     se.send_email(mail_title, mail_body, mail_attachment,
                   mail_recv, mail_recv_cc)
