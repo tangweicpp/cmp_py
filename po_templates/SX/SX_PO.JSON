@@ -1,0 +1,235 @@
+{
+    "customer_code": "SX",
+    "file_name": "SX工单模板.xlsx",
+    "file_type": "xlsx",
+    "file_index": 0,
+    "file_header": 0,
+    "file_max_cols": 18,
+    "file_max_rows": 100,
+    "file_key": {
+        "po_id": {
+            "position": {
+                "col_num": 2,
+                "col_char": "B",
+                "col_name": "PO NO"
+            },
+            "fix_len": null,
+            "max_len": 40,
+            "min_len": 8,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "P20017E20075506020002",
+            "desc": "客户订单号"
+        },
+        "customer_device": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": "Customer Device"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": "_",
+            "complexed": false,
+            "remark": false,
+            "example": "191202BB_U01",
+            "desc": "客户机种名"
+        },
+        "fab_device": {
+            "position": {
+                "col_num": 7,
+                "col_char": "G",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 5,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "191202BB",
+            "desc": "FAB机种名"
+        },
+        "lot_id": {
+            "position": {
+                "col_num": 10,
+                "col_char": "J",
+                "col_name": "批号"
+            },
+            "fix_len": null,
+            "max_len": 20,
+            "min_len": 7,
+            "type": "string",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "BS1711601A",
+            "desc": "lot号"
+        },
+        "wafer_id": {
+            "position": {
+                "col_num": 11,
+                "col_char": "K",
+                "col_name": "刻号"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "string",
+            "in_char": "#",
+            "complexed": true,
+            "remark": false,
+            "example": "#1~25",
+            "desc": "WAFER ID"
+        },
+        "wafer_qty": {
+            "position": {
+                "col_num": 12,
+                "col_char": "L",
+                "col_name": "发货数量"
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "1",
+            "desc": "WAFER片数"
+        },
+        "mark_code": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "3",
+            "desc": "打标码"
+        },
+        "add_1": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_O",
+            "desc": "SHIP_COMMENT"
+        },
+        "add_2": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_P",
+            "desc": "PROBE_SHIP_PART_TYPE"
+        },
+        "add_3": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_Q",
+            "desc": "RETICLE_LEVEL_71"
+        },
+        "add_4": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_R",
+            "desc": "RETICLE_LEVEL_72"
+        },
+        "add_5": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_S",
+            "desc": "RETICLE_LEVEL_73"
+        },
+        "add_6": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_T",
+            "desc": "ASSEMBLY_FACILITY"
+        },
+        "add_7": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_U",
+            "desc": "BATCH_COMMENT_ASSY"
+        }
+    }
+}

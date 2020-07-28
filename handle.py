@@ -139,10 +139,11 @@ def send_mail(ret_data, po_header, mail_attachment):
     mail_body = get_mail_body(
         po_header['user_name'], mail_keyid, po_header['mail_tip'], ret_data)
 
-    sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    # sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
     mail_recv = conn.OracleConn.query(sql)[0][0].split(',')
 
-    sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+    sql = "select recv_user_cc from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
     mail_recv_cc = conn.OracleConn.query(sql)[0][0].split(',')
 
     mail_title = '测试新版WO上传'
@@ -383,9 +384,10 @@ def parse_xlsx_file(file_name, po_header, po_dict):
             if col_name != "":
                 if col_name in row:
                     po_row_data[key] = row[col_name]
-            elif key in po_dict['other_key']:
-                po_row_data[key] = get_cell_val_by_openpyxl(
-                    file_name, po_dict['other_key'][key]['position'])
+            elif 'other_key' in po_dict:
+                if key in po_dict['other_key']:
+                    po_row_data[key] = get_cell_val_by_openpyxl(
+                        file_name, po_dict['other_key'][key]['position'])
             else:
                 po_row_data[key] = ''
 
@@ -429,7 +431,7 @@ def thans_col_row_from_string(s):
 def get_wafer_list(wafer_str):
     if wafer_str == "":
         return []
-
+    wafer_str = str(wafer_str)
     wafer_str_new = re.sub(r'[_~-]', ' _ ', wafer_str)
     pattern = re.compile(r'[A-Za-z0-9_]+')
     result1 = pattern.findall(wafer_str_new)
@@ -591,11 +593,15 @@ def get_cust_pn_info(cust_code, cust_device, fab_device):
         sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
             WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
             and CUSTOMERPTNO2 = '{fab_device}'
-            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  '''
+            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
+            AND MARKETLASTUPDATE_BY IS NOT null
+            '''
     else:
         sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
             WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
-            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  '''
+            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
+            AND MARKETLASTUPDATE_BY IS NOT null
+            '''
 
     results = conn.OracleConn.query(sql)
 

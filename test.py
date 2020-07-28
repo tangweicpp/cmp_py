@@ -4,6 +4,7 @@ from openpyxl import load_workbook
 from itertools import groupby
 import connect_db as conn
 
+import re
 import xlrd
 
 
@@ -46,6 +47,8 @@ if  results:
 
     for del_id in del_list:
         delete_po_data('2', del_id[0])
+
+
         print(f'{del_id}删除成功')
 
 
@@ -66,3 +69,39 @@ if  results:
 # data = table.cell_value(1-1, column_index_from_string('K')-1)
 # # data = table.row_values(0)
 # print(data)
+
+
+
+# Get list
+
+
+# def get_wafer_list(wafer_str):
+#     if wafer_str == "":
+#         return []
+
+#     wafer_str_new = re.sub(r'[_~-]', ' _ ', wafer_str)
+#     pattern = re.compile(r'[A-Za-z0-9_]+')
+#     result1 = pattern.findall(wafer_str_new)
+
+#     # extend
+#     for i in range(1, len(result1)-1):
+#         if result1[i] == '_':
+#             if result1[i-1].isdigit() and result1[i+1].isdigit():
+#                 bt = []
+#                 if int(result1[i-1]) < int(result1[i+1]):
+#                     for j in range(int(result1[i-1])+1, int(result1[i+1])):
+#                         bt.append(f'{j}')
+#                 else:
+#                     for j in range(int(result1[i-1])-1, int(result1[i+1]), -1):
+#                         bt.append(f'{j}')
+#                 result1.extend(bt)
+
+#     # remove '_'
+#     result2 = sorted(set(result1), key=result1.index)
+#     if '_' in result2:
+#         result2.remove('_')
+
+#     return result2
+
+
+# get_wafer_list('01')
