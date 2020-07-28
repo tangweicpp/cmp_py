@@ -535,7 +535,6 @@ def insert_po_data(wafer_id, po_header, po_data):
     passbin_count = ret['gross_dies'] if ret else '0'
     failbin_count = '0'
     product_id = ret['product_id'] if ret else ''
-    fab_device = ret['fab_device'] if ret else ''
     ship_comment = po_data['add_1']
     probe_ship_part_type = po_data['add_2']
     reticle_level_71 = po_data['add_3']
@@ -611,7 +610,6 @@ def get_cust_pn_info(cust_code, cust_device, fab_device):
     ret['ht_pn'] = results[0][0]
     ret['gross_dies'] = results[0][1]
     ret['product_id'] = results[0][2]
-    ret['fab_device'] = results[0][3]
     return ret
 
 
