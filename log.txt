@@ -10327,3 +10327,140 @@
 2020-07-31 02:11:51,550 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:11:51] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
 2020-07-31 02:11:52,552 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:11:52] "[37mGET /update_progress?userKey=3 HTTP/1.1[0m" 200 -
 2020-07-31 02:11:52,687 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:11:52] "[37mPOST /upload_po_file HTTP/1.1[0m" 200 -
+2020-07-31 02:21:38,483 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 02:21:38,500 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 02:21:40,122 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 02:21:40,191 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 02:21:56,673 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 02:21:56,675 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 02:21:57,828 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 02:21:57,859 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 02:22:04,115 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:22:04] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:22:10,321 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:22:10] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:22:16,668 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:22:16] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:22:20,336 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:22:20] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:25:49,027 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:25:49] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:25:53,058 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:25:53] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:26:03,523 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:26:03] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:26:07,370 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:26:07] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:32:15,928 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:32:15] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:35:33,958 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:35:33] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:35:36,830 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:35:36] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:36:54,599 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:36:54] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:37:00,863 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:37:00] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:38:12,268 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:38:12] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:40:30,857 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:40:30] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:40:32,617 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:40:32] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:41:12,496 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:41:12] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:41:15,805 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:41:15] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:43:44,366 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:43:44] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:43:46,411 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:43:46] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:43:50,640 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:43:50] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:43:52,188 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:43:52] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 02:51:56,350 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:51:56] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 02:52:04,674 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 02:52:04] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:12:20,623 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:12:20] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 03:12:22,664 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:12:22] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:14:38,573 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:14:38] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 03:19:09,369 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:19:09] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 03:19:11,679 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:19:11] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:21:19,304 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:21:19] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:21:24,472 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:21:24] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:22:30,582 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:22:30] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 03:36:50,758 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:36:50] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 03:44:37,315 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:44:37] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 03:45:12,668 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:45:12] "[33mGET /query_po_data?custCode=dwdwd&custLotID=dwd&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 404 -
+2020-07-31 03:48:54,797 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 03:48:54,820 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:48:57,618 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:48:57,656 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:48:59,925 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:48:59] "[37mGET /query_po_data?custCode=dwdwd&custLotID=dwd&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 03:53:02,317 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-31 03:53:02,578 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:53:03,551 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:53:03,553 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:53:23,759 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-31 03:53:23,978 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:53:25,014 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:53:25,015 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:53:43,214 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle_po_mgr.py', reloading
+2020-07-31 03:53:43,342 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:53:44,211 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:53:44,211 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:53:57,364 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-31 03:53:57,465 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:53:58,218 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:53:58,218 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:55:29,157 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-31 03:55:29,410 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:55:30,533 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:55:30,535 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:58:44,568 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle_po_mgr.py', reloading
+2020-07-31 03:58:44,792 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:58:45,728 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:58:45,729 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:59:04,938 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/main.py', reloading
+2020-07-31 03:59:05,047 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:59:05,797 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:59:05,797 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:59:08,166 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 03:59:08,167 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 03:59:08,856 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 03:59:08,857 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 03:59:30,885 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 03:59:30] "[35m[1mGET /query_po_data?custCode=&custLotID=D1908150CED&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 500 -
+2020-07-31 04:00:14,156 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 04:00:14,157 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 04:00:14,858 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 04:00:14,859 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 04:00:17,102 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:00:17] "[37mGET /query_po_data?custCode=&custLotID=D1908150CED&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:00:24,465 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:00:24] "[37mGET /query_po_data?custCode=&custLotID=D1908150CED&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:01:41,952 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle_po_mgr.py', reloading
+2020-07-31 04:01:42,138 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 04:01:43,032 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 04:01:43,033 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 04:01:50,034 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 04:01:50,034 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 04:01:50,810 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 04:01:50,810 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 04:01:52,403 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:01:52] "[37mGET /query_po_data?custCode=&custLotID=D1908150CED&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:01:55,092 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:01:55] "[37mGET /query_po_data?custCode=&custLotID=D1908150CED&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:05:16,432 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:05:16] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:07:38,447 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:07:38] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:09:06,891 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:09:06] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:09:07,883 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:09:07] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:09:11,784 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:09:11] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:09:29,410 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:09:29] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:10:23,266 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:10:23] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:10:28,897 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:10:28] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -
+2020-07-31 04:10:33,170 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:10:33] "[37mPOST /po_template HTTP/1.1[0m" 200 -
+2020-07-31 04:12:53,890 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:12:53] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 04:13:06,167 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:13:06] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:13:06,977 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:13:06] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:23:11,042 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:23:11] "[37mPOST /login HTTP/1.1[0m" 200 -
+2020-07-31 04:25:51,097 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:25:51] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:25:55,897 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:25:55] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:26:35,181 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:26:35] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:26:35,717 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:26:35] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:26:35,921 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:26:35] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:26:39,600 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:26:39] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:26:53,081 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:26:53] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:27:31,603 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:27:31] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:28:09,228 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:28:09] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:28:28,057 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:28:28] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:29:00,204 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:29:00] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:30:17,437 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:30:17] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:30:25,140 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:30:25] "[37mGET /query_po_data?custCode=&custLotID=d&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:30:33,341 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:30:33] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:30:48,988 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:30:48] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:31:47,645 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:31:47] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:32:06,352 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:32:06] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:34:45,455 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:34:45] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:35:23,225 :: _log :: INFO ::  * Detected change in '/root/share/flask/src/cmp_py/handle_po_mgr.py', reloading
+2020-07-31 04:35:23,511 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 04:35:25,625 :: _log :: INFO ::  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-31 04:35:25,628 :: _log :: INFO ::  * Restarting with stat
+2020-07-31 04:35:26,355 :: _log :: WARNING ::  * Debugger is active!
+2020-07-31 04:35:26,358 :: _log :: INFO ::  * Debugger PIN: 100-935-414
+2020-07-31 04:35:29,070 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:35:29] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:35:48,174 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:35:48] "[37mGET /query_po_data?custCode=&custLotID=194L05&custWaferID=&custPOID=&createBy=&createDate= HTTP/1.1[0m" 200 -
+2020-07-31 04:36:05,599 :: _log :: INFO :: 10.160.31.173 - - [31/Jul/2020 04:36:05] "[37mGET /cust_code_list HTTP/1.1[0m" 200 -

@@ -13,6 +13,7 @@ from flask import request
 from flask import make_response
 from flask_cors import CORS
 import handle as h
+import handle_po_mgr as hpm
 import json
 
 # CORS
@@ -81,6 +82,17 @@ def r_update_progress():
         user_key = request.args.get('userKey')
         num = h.get_progress(user_key)
         return make_response(jsonify({"progress": num}), 200)
+
+
+# Query po data
+@app.route('/query_po_data', methods=['GET', 'POST'])
+def r_query_po_data():
+    if request.method == 'GET':
+        po_query = {}
+        po_query['cust_code'] = request.args.get('custCode')
+        po_query['cust_lot_id'] = request.args.get('custLotID')
+        ret = hpm.get_po_data(po_query)
+        return make_response(jsonify({"info": ret}), 200)
 
 
 # Run server
