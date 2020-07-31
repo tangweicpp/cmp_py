@@ -140,7 +140,7 @@ def send_mail(ret_data, po_header, mail_attachment):
         po_header['user_name'], mail_keyid, po_header['mail_tip'], ret_data)
 
     if po_header['user_name'] == '07885':
-        sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_TEST' "
+        sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV_MY' "
     else:
         sql = "select recv_user_to from erp_email_recv where email_type = 'WO_UPLOAD_RECV' "
 

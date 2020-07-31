@@ -85,4 +85,4 @@ def r_update_progress():
 
 # Run server
 if __name__ == "__main__":
-    app.run(host='10.160.31.115', debug=True, threaded=True)
+    app.run(host='0.0.0.0', debug=True, threaded=True)
