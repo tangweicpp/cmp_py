@@ -33,13 +33,22 @@ def xstr(s):
 def get_po_data(po_query):
     json_data = []
 
-    sql = f"select customershortname,lotid,substrateid from mappingdatatest where lotid = '{po_query['cust_lot_id']}' order by substrateid "
+    sql = f'''
+        select a.customershortname,b.MPN_DESC,a.lotid,a.substrateid, CASE WHEN c.WAFERID IS null THEN 'N' ELSE 'Y' end,b.WAFER_VISUAL_INSPECT from mappingdatatest a
+        INNER JOIN CUSTOMEROITBL_TEST b ON a.FILENAME = to_char(b.id) 
+        left JOIN IB_WAFERLIST c ON a.SUBSTRATEID  = c.WAFERID  AND a.LOTID  = c.WAFERLOT 
+        where a.lotid = '{po_query['cust_lot_id']}' 
+        order by substrateid 
+    '''
     results = conn.OracleConn.query(sql)
     for row in results:
         result = {}
         result['cust_code'] = xstr(row[0])
-        result['lot_id'] = xstr(row[1])
-        result['wafer_id'] = xstr(row[2])
+        result['cust_pn'] = xstr(row[1])
+        result['lot_id'] = xstr(row[2])
+        result['wafer_id'] = xstr(row[3])
+        result['is_worked'] = xstr(row[4])
+        result['upload_id'] = xstr(row[5])
 
         json_data.append(result)
     return json_data
