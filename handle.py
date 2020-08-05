@@ -532,7 +532,10 @@ def insert_po_data(wafer_id, po_header, po_data):
     po_id = po_data['po_id']
     cust_device = po_data['customer_device']
     fab_device = po_data['fab_device']
-    ret = get_cust_pn_info(cust_code, cust_device, fab_device)
+    cust_fab_device = po_data['cust_fab_device'] if 'cust_fab_device' in po_data else ''
+    product_code = po_data['add_0']
+    ret = get_cust_pn_info(cust_code, cust_device,
+                           fab_device, cust_fab_device, product_code)
     if not ret:
         po_header['err_desc'] = '无法对应NPI对照表唯一厂内机种'
 
@@ -541,6 +544,7 @@ def insert_po_data(wafer_id, po_header, po_data):
     passbin_count = ret['gross_dies'] if ret else '0'
     failbin_count = '0'
     product_id = ret['product_id'] if ret else ''
+    wafer_vesion = po_data['add_0']
     ship_comment = po_data['add_1']
     probe_ship_part_type = po_data['add_2']
     reticle_level_71 = po_data['add_3']
@@ -565,7 +569,7 @@ def insert_po_data(wafer_id, po_header, po_data):
             Imager_Customer_Rev,Created_Date,mtrl_num,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
-            values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
+            values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','{wafer_vesion}','','{ht_pn}','{cust_code}',
             'Y','{create_by}',sysdate,'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
             '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
           '''
@@ -584,27 +588,35 @@ def insert_po_data(wafer_id, po_header, po_data):
             Imager_Customer_Rev,Created_Date,mtrl_num,CustomerShortName,flag,Qtech_Created_By,Qtech_Created_Date,
             probe_ship_part_type,RETICLE_LEVEL_71,RETICLE_LEVEL_72,RETICLE_LEVEL_73,ASSEMBLY_FACILITY,BATCH_COMMENT_ASSY,
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
-            values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','','','{ht_pn}','{cust_code}',
+            values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','{wafer_vesion}','','{ht_pn}','{cust_code}',
             'Y','{create_by}',getdate(),'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
             '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
           '''
     conn.MssConn.exec(sql)
 
 
-def get_cust_pn_info(cust_code, cust_device, fab_device):
-    if fab_device != '':
+def get_cust_pn_info(cust_code, cust_device, fab_device, cust_fab_device, product_code):
+    if cust_fab_device != '':
         sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
-            WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
-            and CUSTOMERPTNO2 = '{fab_device}'
+            WHERE CUSTOMERSHORTNAME = '{cust_code}' and instr('{cust_fab_device}',CUSTOMERPTNO1) > 0 
+            AND   instr('{cust_fab_device}',CUSTOMERPTNO2) > 0 AND STRUCKSTR3 = '{product_code}' 
             and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
             AND MARKETLASTUPDATE_BY IS NOT null
             '''
     else:
-        sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
-            WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
-            and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
-            AND MARKETLASTUPDATE_BY IS NOT null
-            '''
+        if fab_device != '':
+            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+                WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
+                and CUSTOMERPTNO2 = '{fab_device}'
+                and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
+                AND MARKETLASTUPDATE_BY IS NOT null
+                '''
+        else:
+            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+                WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
+                and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
+                AND MARKETLASTUPDATE_BY IS NOT null
+                '''
 
     results = conn.OracleConn.query(sql)
 

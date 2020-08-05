@@ -8,6 +8,24 @@ import re
 import xlrd
 
 
+sql = '''
+select substrateid from mappingdatatest where micronlotid = 'std_new' order by substrateid 
+'''
+
+results = conn.OracleConn.query(sql)
+for row in results:
+    waferid = row[0]
+    conn.OracleConn.exec(
+        f"update mappingdatatest set QTECH_CREATED_DATE = sysdate where substrateid = '{waferid}'  ")
+
+    mark_id = conn.OracleConn.query(
+        "SELECT QTMCodeSeq.SXCode('a') FROM DUAL ")[0][0]
+
+    conn.OracleConn.exec(
+        f"update mappingdatatest set productid = '{mark_id}' where substrateid = '{waferid}'")
+    conn.MssConn.exec(
+        f"update ERPBASE.dbo.tblmappingData set productid = '{mark_id}' where substrateid = '{waferid}'")
+
 # def thans_col_row_from_string(s):
 #     dict = {}
 #     s = 'AB10'
@@ -42,12 +60,11 @@ INNER JOIN CUSTOMEROITBL_TEST t2 ON to_char(t2.id) = t1.FILENAME
 WHERE t1.MICRONLOTID = 'std_new' AND t1.LOTID LIKE 'TW%'
 '''
 results = conn.OracleConn.query(sql)
-if  results:
+if results:
     del_list = results
 
     for del_id in del_list:
         delete_po_data('2', del_id[0])
-
 
         print(f'{del_id}删除成功')
 
@@ -69,7 +86,6 @@ if  results:
 # data = table.cell_value(1-1, column_index_from_string('K')-1)
 # # data = table.row_values(0)
 # print(data)
-
 
 
 # Get list
