@@ -484,7 +484,11 @@ def check_po_data(po_header, po_dict, po_data):
                 return False
 
         # Check 2:customer code => customer device
-        sql = f"SELECT count(1) FROM TBLTSVNPIPRODUCT t  WHERE t.CUSTOMERSHORTNAME  = '{po_header['cust_code']}' AND t.CUSTOMERPTNO1  = '{item['customer_device']}'  "
+        if 'cust_fab_device' in item:
+            sql = f"SELECT count(1) FROM TBLTSVNPIPRODUCT t  WHERE t.CUSTOMERSHORTNAME  = '{po_header['cust_code']}' AND instr( '{item['cust_fab_device']}',t.CUSTOMERPTNO1) > 0  "
+        else:
+            sql = f"SELECT count(1) FROM TBLTSVNPIPRODUCT t  WHERE t.CUSTOMERSHORTNAME  = '{po_header['cust_code']}' AND t.CUSTOMERPTNO1  = '{item['customer_device']}'  "
+
         if conn.OracleConn.query(sql)[0][0] == 0:
             print('客户代码和客户机种无法对应，或者NPI对照表未维护对应关系')
             po_header['err_desc'] = '客户代码和客户机种无法对应，或者NPI对照表未维护对应关系'
@@ -540,6 +544,7 @@ def insert_po_data(wafer_id, po_header, po_data):
         po_header['err_desc'] = '无法对应NPI对照表唯一厂内机种'
 
     fab_device = ret['fab_device'] if ret else ''
+    cust_device = ret['cust_device'] if ret else ''
     ht_pn = ret['ht_pn'] if ret else ''
     passbin_count = ret['gross_dies'] if ret else '0'
     failbin_count = '0'
@@ -597,7 +602,7 @@ def insert_po_data(wafer_id, po_header, po_data):
 
 def get_cust_pn_info(cust_code, cust_device, fab_device, cust_fab_device, product_code):
     if cust_fab_device != '':
-        sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+        sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2,CUSTOMERPTNO1 FROM TBLTSVNPIPRODUCT 
             WHERE CUSTOMERSHORTNAME = '{cust_code}' and instr('{cust_fab_device}',CUSTOMERPTNO1) > 0 
             AND   instr('{cust_fab_device}',CUSTOMERPTNO2) > 0 AND STRUCKSTR3 = '{product_code}' 
             and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
@@ -605,14 +610,14 @@ def get_cust_pn_info(cust_code, cust_device, fab_device, cust_fab_device, produc
             '''
     else:
         if fab_device != '':
-            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2,CUSTOMERPTNO1 FROM TBLTSVNPIPRODUCT 
                 WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
                 and CUSTOMERPTNO2 = '{fab_device}'
                 and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
                 AND MARKETLASTUPDATE_BY IS NOT null
                 '''
         else:
-            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2 FROM TBLTSVNPIPRODUCT 
+            sql = f''' SELECT QTECHPTNO,CUSTOMERDIEQTY,QTECHPTNO2,CUSTOMERPTNO2,CUSTOMERPTNO1 FROM TBLTSVNPIPRODUCT 
                 WHERE CUSTOMERSHORTNAME = '{cust_code}' and CUSTOMERPTNO1  = '{cust_device}' 
                 and substr(QTECHPTNO2 ,-3,2) <> 'WB' and QTECHPTNO NOT LIKE '%FT'  
                 AND MARKETLASTUPDATE_BY IS NOT null
@@ -633,6 +638,7 @@ def get_cust_pn_info(cust_code, cust_device, fab_device, cust_fab_device, produc
     ret['gross_dies'] = results[0][1]
     ret['product_id'] = results[0][2]
     ret['fab_device'] = results[0][3]
+    ret['cust_device'] = results[0][4]
     return ret
 
 

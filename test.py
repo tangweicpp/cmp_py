@@ -8,23 +8,23 @@ import re
 import xlrd
 
 
-sql = '''
-select substrateid from mappingdatatest where micronlotid = 'std_new' order by substrateid 
-'''
+# sql = '''
+# select substrateid from mappingdatatest where micronlotid = 'std_new' order by substrateid 
+# '''
 
-results = conn.OracleConn.query(sql)
-for row in results:
-    waferid = row[0]
-    conn.OracleConn.exec(
-        f"update mappingdatatest set QTECH_CREATED_DATE = sysdate where substrateid = '{waferid}'  ")
+# results = conn.OracleConn.query(sql)
+# for row in results:
+#     waferid = row[0]
+#     conn.OracleConn.exec(
+#         f"update mappingdatatest set QTECH_CREATED_DATE = sysdate where substrateid = '{waferid}'  ")
 
-    mark_id = conn.OracleConn.query(
-        "SELECT QTMCodeSeq.SXCode('a') FROM DUAL ")[0][0]
+#     mark_id = conn.OracleConn.query(
+#         "SELECT QTMCodeSeq.SXCode('a') FROM DUAL ")[0][0]
 
-    conn.OracleConn.exec(
-        f"update mappingdatatest set productid = '{mark_id}' where substrateid = '{waferid}'")
-    conn.MssConn.exec(
-        f"update ERPBASE.dbo.tblmappingData set productid = '{mark_id}' where substrateid = '{waferid}'")
+#     conn.OracleConn.exec(
+#         f"update mappingdatatest set productid = '{mark_id}' where substrateid = '{waferid}'")
+#     conn.MssConn.exec(
+#         f"update ERPBASE.dbo.tblmappingData set productid = '{mark_id}' where substrateid = '{waferid}'")
 
 # def thans_col_row_from_string(s):
 #     dict = {}
