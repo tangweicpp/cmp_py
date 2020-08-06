@@ -552,7 +552,9 @@ def insert_po_data(wafer_id, po_header, po_data):
     wafer_vesion = po_data['add_0']
     ship_comment = po_data['add_1']
     probe_ship_part_type = po_data['add_2']
+    shipping_mst_level = po_data['add_2']
     reticle_level_71 = po_data['add_3']
+    shipping_mst_260 = po_data['add_3']
     reticle_level_72 = po_data['add_4']
     reticle_level_73 = po_data['add_5']
     assembly_facility = po_data['add_6']
@@ -576,7 +578,7 @@ def insert_po_data(wafer_id, po_header, po_data):
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','{wafer_vesion}','','{ht_pn}','{cust_code}',
             'Y','{create_by}',sysdate,'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
-            '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
+            '{batch_comment_assy}','{bonded}','','{shipping_mst_level}','{shipping_mst_260}','{lot_id}','HTKS','{ship_comment}')
           '''
 
     conn.OracleConn.exec(sql)
@@ -595,7 +597,7 @@ def insert_po_data(wafer_id, po_header, po_data):
             jobno,date_code,shipping_mst_level,shipping_mst_260,TARGET_WAF_THICKNESS,COMP_CODE,SHIP_COMMENT)
             values( {max_id},'{po_id}','{upload_id}','{lot_id}','{cust_code}','HTKS','{fab_device}','{cust_device}','{wafer_vesion}','','{ht_pn}','{cust_code}',
             'Y','{create_by}',getdate(),'{probe_ship_part_type}','{reticle_level_71}','{reticle_level_72}','{reticle_level_73}','{assembly_facility}',
-            '{batch_comment_assy}','{bonded}','','','','{lot_id}','HTKS','{ship_comment}')
+            '{batch_comment_assy}','{bonded}','','{shipping_mst_level}','{shipping_mst_260}','{lot_id}','HTKS','{ship_comment}')
           '''
     conn.MssConn.exec(sql)
 
