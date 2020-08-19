@@ -119,6 +119,22 @@
             "example": "3",
             "desc": "打标码"
         },
+        "add_0": {
+            "position": {
+                "col_num": 9,
+                "col_char": "I",
+                "col_name": ""
+            },
+            "fix_len": null,
+            "max_len": 50,
+            "min_len": 1,
+            "type": "number",
+            "in_char": null,
+            "complexed": false,
+            "remark": false,
+            "example": "COL_O",
+            "desc": "SHIP_COMMENT"
+        },
         "add_1": {
             "position": {
                 "col_num": 9,
